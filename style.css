@@ -251,7 +251,7 @@ img, video { display: block; max-width: 100%; }
 
 .awkward-weird {
   position: relative;
-  height: fit-content;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
