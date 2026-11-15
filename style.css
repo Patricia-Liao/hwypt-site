@@ -519,7 +519,6 @@ img, video { display: block; max-width: 100%; }
 .poop-img-container img {
   filter: blur(20px) opacity(50%);
   object-fit: fill;
-  color: ;
 }
 
 .real-poop img:hover {
