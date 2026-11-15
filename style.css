@@ -1,0 +1,732 @@
+:root {
+  --redbrown:    #7F0A01;
+  --brown:  #85441E;
+  --white:     #FBEDE0;
+  --black: #291A06; 
+  --orange: #F1512D; 
+  --green: #C2D442; 
+
+  --autumn: #B6410E;
+  --saladgreen: #BEA004;
+  --weakshit: #F2C46E; 
+
+   /*gradient*/
+
+  --halloweenpoop: linear-gradient(180deg, var(--autumn) 0%, var(--black) 100%);
+  --peachy: linear-gradient(180deg, var(--orange) 0%, var(--white) 65%, rgba(251, 237, 224, 0) 100%);
+
+  /* the five Bristol colours, top to bottom: fill these in */
+  --bristol-1: #85441E;
+  --bristol-2: #F2C46E;
+  --bristol-3: #BEA004;
+  --bristol-4: #85441E;
+  --bristol-5: #7F0A01;
+
+  --bristol-gradient: linear-gradient(
+    180deg,
+    var(--bristol-1)   0%,
+    var(--bristol-2)  25%,
+    var(--bristol-3)  50%,
+    var(--bristol-4)  75%,
+    var(--bristol-5) 100%
+  );
+
+
+    --pad: clamp(1rem, 3vw, 2.5rem);
+}
+
+
+  
+
+
+
+/* ============ Base ============ */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  overflow-x: hidden;            /* no sideways scroll */
+  background: var(--white);
+  background-image: url(/assets/toilet-paper-bg.png);
+}
+
+
+/* ============ Typography ============ */
+
+/* Adversecase Demo Font  */
+
+@font-face {
+    font-family: "Advercase";
+    src: url("./fonts/Advercase-Font-Demo-Regular.otf") format("opentype");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+    line-height: 0.8;
+    
+}
+
+@font-face {
+    font-family: "Advercase";
+    src: url("./fonts/Advercase-Font-Demo-Italic.otf") format("opentype");
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+    line-height: 0.8;
+} 
+
+h1, .h1__accent, h2, .h2__accent, .advercase {
+  font-family: 'Advercase', serif;
+  text-transform: uppercase;
+  font-size: clamp(100px, 20.25vw, 350px);
+  margin: 0px;
+  padding: 0px;
+  line-height: 1;
+}
+
+.h1__accent {
+  font-style: italic;
+}
+h2 {
+  font-size: clamp(80px, 14.47vw, 250px);
+}
+.h2__accent {
+  font-size: clamp(80px, 14.47vw, 250px);
+  font-style: italic;
+}
+
+.advercase {
+  font-size: clamp(32px, 4.63vw, 80px);
+  font-style: italic;
+  text-transform: capitalize;
+  line-height: 107.7%;
+}
+
+/* Clash Display Font */
+
+h3, h4, .quote-clash, h5 {
+font-family: "Clash Display";
+font-style: normal;
+line-height: 107.654%; /* 11.43825rem */
+font-weight: 600;
+margin: 0px;
+}
+
+h3 {
+
+font-weight: 700;
+text-transform: uppercase;
+font-size: clamp(60px, 9.84vw, 170px);
+}
+
+h4 {
+text-transform: uppercase;
+font-size: clamp(36px, 5.56vw, 96px);
+}
+
+.quote-clash {
+  font-size: clamp(48px, 7.41vw, 128px);
+}
+
+h5 {
+font-size: clamp(24px, 2.78vw, 48px);
+font-weight: 500;
+}
+
+/* Teachers font */
+
+p, .p1, .p2 {
+  font-family: "Teachers", sans-serif;
+  font-weight: 500;
+}
+
+.p1 {
+  font-size: clamp(18px, 2.08vw, 36px);
+}
+.p2 {
+  font-size: clamp(14px, 1.39vw, 24px);
+}
+
+
+
+img, video { display: block; max-width: 100%; }
+
+/* ============ Hero ============ */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+  color: var(--white);
+  /* CUSTOMISE: the % values control where the fade starts and ends */
+  background: linear-gradient(
+    180deg,
+    var(--redbrown)   0%,
+    var(--brown) 45%,
+    rgba(133, 68, 30, 0) 85%   /* #85441E at 0 opacity */
+  );
+}
+
+/* Video: sits behind everything, keeps its own aspect ratio (no stretching) */
+.hero__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  z-index: 0;
+  pointer-events: none;
+  /* fades the bottom edge into the gradient */
+  -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+          mask-image: linear-gradient(to bottom, #000 70%, transparent 100%);
+}
+
+.hero__still {
+  opacity: 0;
+  visibility: hidden;
+  
+}
+
+.hero__nav, .hero__center, .hero__bottom { position: relative; z-index: 1; }
+
+/* ---- Nav ---- */
+.hero__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: var(--pad);
+}
+
+.hero__menu {
+  display: grid;
+  gap: 0.2rem;
+  width: 2.75rem;
+  padding: 0;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.hero__menu span {
+  display: block;
+  height: 1.1rem;
+  background: #efe6d8;
+  border-radius: 0.15rem;
+}
+.hero__menu span:last-child { width: 80%; height: 0.7rem; justify-self: center; }
+
+/* ---- Centre ---- */
+.hero__center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero__logo {
+
+  width: var(--logo-width);
+  aspect-ratio: 3.5 / 1;             /* the shape of the box you want to keep */
+  object-fit: cover;               /* crops instead of stretching */
+  object-position: center 55%;     /* which part to keep: 0% = top, 100% = bottom */
+}
+
+.hero__nextmessage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  color: var(--redbrown);
+  height: 100vh;
+}
+
+.next {
+  height: 200vh;
+  background-image: url(/assets/redbrown-swirly-stool.svg);
+  background-position: center;
+  background-size: cover;
+}
+
+.awkward-weird {
+  position: relative;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--white);
+
+  background: linear-gradient(
+    180deg,
+    var(--redbrown)   20%,
+    var(--brown) 65%,
+    rgba(133, 68, 30, 0) 100%   /* #85441E at 0 opacity */
+  );
+}
+.awkward {
+  padding-top: 200px;
+}
+
+.awkward-weird > div:first-child h5 {
+  margin-left: 6%;
+  margin-bottom: 0.4em;
+}
+.green{
+  color: var(--green);
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  gap: 0.6em;
+  padding-right: 6%;
+}
+
+
+.butt {
+  height: fit-content;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--peachy);
+}
+
+.butt__stage {
+  position: relative;
+  width: 100%;
+  max-width: 1728px;
+}
+
+.butt__text { 
+  display: block; 
+  width: 100%; 
+  height: auto; 
+  overflow: visible;
+}
+
+/* font sizes are in SVG units, so they scale with the artwork */
+.butt {
+  --word-size: 110px;      /* CUSTOMISE: BUTT */
+  --caption-size: 22px;    /* CUSTOMISE: the caption */
+}
+
+/* three class names deep, so a stray rule elsewhere can't beat it */
+.butt .butt__text .butt__word {
+  font-family: 'Clash Display';
+  font-weight: 800;
+  font-size: var(--word-size);
+  fill: var(--redbrown);
+}
+
+.butt .butt__text .butt__caption {
+  font-family: 'Clash Display';
+  font-weight: 800;
+  font-size: var(--caption-size);
+  letter-spacing: 0.02em;
+  fill: var(--redbrown);
+}
+.is-orange { fill: var(--orange); }
+
+/* the gif sits over the middle of the arcs */
+.butt__gif {
+  position: absolute;
+  left: 50.4%;
+  top: 59%;
+  width: 57%;
+  height: auto;
+  translate: -50% -50%;
+
+}
+
+/* ============ Section ============ */
+.stoolrich {
+  position: relative;      
+  overflow: visible;          
+  min-height: 100vh;
+  display: grid;
+  place-items: center;         /* centres the content block */
+  background: var(--halloweenpoop);
+}
+
+/* ============ Swirls ============ */
+.stoolrich__swirl {
+  position: absolute;
+  top: 50%;
+  height: 130%;                /* taller than the section, so it crops top and bottom too */
+  width: auto;                 /* keeps the shape, no squashing */
+  translate: 0 -50%;           /* centres it vertically */
+  pointer-events: none;
+}
+.stoolrich__swirl--left  { left: -9%; }               /* CUSTOMISE: more negative = more hidden */
+.stoolrich__swirl--right { right: -9%; scale: -1 1; }
+
+/* ============ Content ============ */
+.stoolrich-container {
+  position: relative;
+  z-index: 1;                  /* sits above the swirls */
+  max-width: 1350px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* gap: clamp(2rem, 5vw, 4rem); */
+}
+
+.stool-quote { 
+  text-align: center; 
+  color: var(--green); 
+  gap: 50px;
+}
+.stool-quote__author {
+  font-size: clamp(14px, 1.39vw, 24px);
+}
+
+/* ============ The two pills ============ */
+.stool-definition {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 1fr 1fr;
+  place-items: center;
+
+}
+
+.stool-definition .p2 {
+  padding: 0.75rem 2.25rem;
+  border: 1px solid rgb(241 81 45 / 0.5);
+  border-radius: 3.75rem;
+  background: rgb(133 68 30 / 0.25);
+  box-shadow: 1px 2px 23.5px 0 rgba(0, 0, 0, 0.20);
+  color: var(--white);
+}
+.stool-defn-1:hover, .stool-defn-2:hover{
+  transform: translateY(-10px);
+}
+.stool-defn-1 {
+  grid-column: 3/8;
+  grid-row: 1/2;
+  transition: transform 0.3s ease;
+}
+.stool-defn-2{
+  grid-row: 2/3;
+  grid-column: 6/-2;
+  transition: transform 0.3s ease;
+}
+
+.hl-green { color: var(--green); }
+.hl-red   { color: var(--orange); }
+
+
+.buttagain {
+  height: fit-content;
+}
+.butt-again {
+  background: var(--peachy);
+  color: var(--redbrown);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+}
+
+.next-seventypes {
+  background: var(--halloweenpoop);
+  color: var(--white);
+}
+.next-seventypes .h1__accent {
+  color: var(--green);
+}
+
+
+
+/* ============ CUSTOMISE: colours, spacing, panel sizes ============ */
+/* ============ HSCROLL ============ */
+.hscroll {
+  --panel-padding: clamp(1.5rem, 5vw, 6rem);
+  --panel-w: 100vw;           /* default panel width. Override per panel below */
+  position: relative;
+}
+
+/* ---------- 1) DEFAULT: mobile + reduced motion. Panels STACK, no pin ---------- */
+.hscroll__track {
+  display: flex;
+  flex-direction: column;     /* <- this was "row". It's what makes mobile stack */
+  background: var(--halloweenpoop);
+}
+
+.hscroll__panel {
+  position: relative;
+  min-height: 100svh;
+  padding: var(--panel-padding);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Panel 1: title card (stacked by default) */
+.hscroll__panel--title {
+  flex-direction: column;
+  gap: 1rem;
+}
+.hscroll__seven {
+  font-style: italic;
+  color: var(--green);
+  font-size: 200px;
+  font-size: clamp(157px, 31.8vw, 550px);
+  line-height: 0.8;
+}
+.hscroll__lines { color: var(--white); }
+.of-shit { display: flex; flex-direction: column; gap: 12px; }
+.of-shit .h1__accent { color: var(--green); }
+.of-shit img { width: clamp(2rem, 5vw, 4rem); transform: rotate(90deg);
+  }
+
+/* Panel 2: big title (stacked by default) */
+.hscroll__panel--intro { color: var(--white); }
+.hscroll__panel--intro h3 { color: var(--green); }
+.intro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Panel 3: description */
+.hscroll__about { max-width: 50rem; color: var(--white); }
+.hscroll__about h5 { color: var(--green); }
+
+.real-poop {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  scrollbar-width: none;                   /* hide the scrollbar (Firefox) */
+
+  /* run edge to edge, but line up with the text at the start */
+  margin-inline: calc(var(--panel-padding) * -1);
+  padding-inline: var(--panel-padding);
+  scroll-padding-inline: var(--panel-padding);
+}
+.real-poop::-webkit-scrollbar { display: none; }
+
+.real-poop img {
+  object-fit: fill;
+  scroll-snap-align: start;
+  /* filter: blur(20px); */
+}
+.poop-img-container {
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--green);
+  aspect-ratio: 1;
+}
+
+.poop-img-container img {
+  filter: blur(20px) opacity(50%);
+  object-fit: fill;
+  color: ;
+}
+
+.real-poop img:hover {
+  filter: blur(0);
+}
+
+
+
+
+/* ---------- 3) DESKTOP + TABLET: horizontal ----------*/
+@media (min-width: 769px) and (prefers-reduced-motion: no-preference) {
+
+  .hscroll {
+    height: 100vh;
+    overflow: hidden;         /* hides the panels waiting off to the right */
+  }
+
+  .hscroll__track {
+    flex-direction: row;
+    width: max-content;       /* as wide as all the panels together, so scrollWidth is accurate */
+    height: 100%;
+    will-change: transform;
+  }
+
+  .hscroll__panel {
+    flex: 0 0 var(--panel-w);
+    width: var(--panel-w);
+    height: 100%;
+    min-height: 0;
+  }
+
+  /* Panel 1 goes back to a row */
+  .hscroll__panel--title { 
+    flex-direction: row; 
+    align-items: center; 
+    gap: 5rem; }
+    
+  .of-shit { display: flex; flex-direction: row; gap: 12px; }
+  .of-shit img {
+    transform: rotate(0deg);
+  }
+
+  /* Panel 2: as wide as its title */
+  .hscroll__panel--intro {
+    --panel-w: fit-content;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.2rem;
+  }
+  .intro-container { flex-direction: row; align-items: baseline; }
+  .hscroll__panel--intro .hscroll__title,
+  .hscroll__panel--intro h3 { white-space: nowrap; }
+
+  /* Panel 3 */
+  .hscroll__panel--about { --panel-w: 100vw;
+  display: flex;
+  flex-direction: row;} 
+  
+}
+
+.next-test {
+  background: var(--black);
+  height: 100vh;
+}
+
+/* ---------- Photos, 769px and up: all seven on show ---------- */
+@media (min-width: 769px) {
+  .real-poop {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(0.5rem, 1vw, 1rem);
+    overflow: visible;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+  .real-poop img { flex: none; width: 100%; scroll-snap-align: none; }
+
+}
+
+/* ============ Small screens ============*/
+ 
+@media (max-aspect-ratio: 1/1) {
+  .hero__video {
+    width: 170%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .butt__text tspan { fill-opacity: 0; }
+}
+
+@media (max-width: 768px) {
+    .stoolrich { --content-w: 88vw; --swirl-reach: 30vw; }
+  .stoolrich__swirl { opacity: 0.4; }   /* faint, so they don't fight the text */
+}
+
+@media screen and (max-width: 500px) {
+  
+.stool-definition {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.stool-defn-1 {
+  grid-column: 1/3;
+  grid-row: 1/2;
+}
+.stool-defn-2{
+  grid-row: 2/3;
+  grid-column: 1/-1;
+}
+
+}
+
+
+/* SEVEN-TYPES BRISTOL STOOL CHART SECTION */
+
+
+/* ============ The long gradient ============ */
+.bristol {
+  background: var(--bristol-gradient);
+}
+
+/* ============ One article ============ */
+.type {
+  /* per-article colours: overridden by the modifier classes below */
+  --type-heading: var(--white);
+  --pill-bg:      rgb(251 237 224 / 0.7);   /* a see-through version of --white, so it picks up the gradient */
+  --pill-text:    var(--black);
+  --pill-border:  rgb(41 26 6 / 0.3);
+
+  position: relative;                       /* the GIF positions against this */
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto auto 1fr 1fr;    /* label / title / left-note row / right-note row */
+  padding: var(--pad);
+}
+
+.type__label,
+.type__title {
+  grid-column: 1 / -1;
+  justify-self: center;
+  text-align: center;
+  color: var(--type-heading);
+}
+.type__title { position: relative; z-index: 1; }   /* sits under the GIF */
+
+/* ---- The GIF: centred, in front of the big text, overlapping its bottom ---- */
+.type__gif {
+  position: absolute;
+  left: 50%;
+  top: 56%;
+  translate: -50% -50%;
+  height: 46%;               /* CUSTOMISE: GIF size */
+  width: auto;               /* keeps the shape */
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ---- The two notes: left one higher, right one lower ---- */
+.type__note {
+  position: relative;
+  z-index: 2;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--pill-border);
+  border-radius: 1.75rem;
+  background: var(--pill-bg);
+  color: var(--pill-text);
+}
+.type__note--left  { grid-column: 1 / 5;   grid-row: 3; align-self: end;   }
+.type__note--right { grid-column: 9 / 13;  grid-row: 4; align-self: start; justify-self: end; }
+
+/* ============ CUSTOMISE: each article's colours ============ */
+.type--pebbles { --type-heading: var(--white); }
+.type--lumpy   { --type-heading: var(--white); }
+.type--cracks  { --type-heading: var(--redbrown); }
+.type--snake   { --type-heading: var(--redbrown); }
+.type--blobs   { --type-heading: var(--green); }
+.type--mush    { --type-heading: var(--green); }
+.type--liquid  {--type-heading: var(--white);
+  /* dark pills on the dark red end, like your "did you know" ones */
+  --pill-bg:     rgb(133 68 30 / 0.25);
+  --pill-text:   var(--white);
+  --pill-border: rgb(241 81 45 / 0.5);
+}
+
+/* ============ Mobile: everything stacks ============ */
+@media (max-width: 768px) {
+  .type {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    min-height: auto;
+    padding-block: 4rem;
+  }
+  .type__gif {
+    position: static;
+    translate: none;
+    height: 40svh;
+    margin-block: -1.5rem;    /* still overlaps the big text a little */
+  }
+  .type__note { width: min(100%, 22rem); }
+  .type__note--left  { align-self: flex-start; }
+  .type__note--right { align-self: flex-end; }
+}

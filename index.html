@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HWYPT</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+
+
+</head>
+
+<body>
+  <section class="hero">
+
+    <!-- Top bar -->
+    <header class="hero__nav" >
+      <button class="hero__menu" type="button" aria-label="Open menu">
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+
+     <!-- still: sits underneath, hidden at first -->
+<img class="hero__video hero__still" src="assets/swirly-poop-freeze.png" alt="" aria-hidden="true">
+
+<!-- gif: on top -->
+<img class="hero__video hero__gif" src="assets/swirly-poop-animated.gif" alt="" aria-hidden="true">
+
+    <!-- Centre block -->
+    <div class="hero__center">
+      <h5> it's always <span class="hero__accent">wyd</span> and never...
+      </h5>
+
+      <img class="hero__logo" src="assets/logo-animation-gif.gif">  
+    </div>
+
+    <div class="hero__nextmessage">
+      <h5>how was your poop today?</h5>
+
+    </div>
+
+ </section>
+
+  <!-- Placeholder so the arrow has somewhere to scroll to -->
+  <section class="next">
+
+  </section>
+
+  <section class="awkward-weird">
+  <div class="awkward">
+    <div>
+      <h5 data-slide="left">i mean, yeah it can be a little</h5>
+      <h1 data-slide="left">awkward</h1>
+    </div>
+    <div class="green">
+      <h5 data-slide="right">aaaaand</h5>
+      <h1 class="h1__accent" data-slide="right">WEIRD</h1>
+    </div>
+  </div>
+</section>
+
+<section class="butt">
+  <div class="butt__stage">
+
+    <svg class="butt__text" viewBox="0 0 500 500" role="img" aria-label="Butt. Your shit knows shit.">
+  <path class="butt__guide" id="arc-top"    fill="none" d="M110 306 A150 150 0 0 1 408 306"/>
+  <path class="butt__guide" id="arc-bottom" fill="none" d="M100 416 A200 200 0 0 0 390 416"/>
+
+  <text class="butt__word" text-anchor="middle">
+    <textPath id="tp-top" href="#arc-top" startOffset="58%"><tspan>B</tspan><tspan>U</tspan><tspan>T</tspan><tspan>T</tspan></textPath>
+  </text>
+
+  <text class="butt__caption" text-anchor="middle">
+    <textPath id="tp-bottom" href="#arc-bottom" startOffset="50%"><tspan>YOUR</tspan> <tspan class="is-orange">SHIT</tspan> <tspan>KNOWS</tspan> <tspan class="is-blue">SHIT</tspan></textPath>
+  </text>
+</svg>
+
+    <img class="butt__gif" src="assets/bum-gif-test.gif" alt="">
+  </div>
+</section>
+
+<section class="stoolrich">
+  
+  <img class="stoolrich__swirl stoolrich__swirl--left"  src="assets/redbrown-swirly-stool.svg" alt="" aria-hidden="true">
+  <img class="stoolrich__swirl stoolrich__swirl--right" src="assets/redbrown-swirly-stool.svg" alt="" aria-hidden="true">
+
+  <div class="stoolrich-container">
+
+    <div class="stool-quote">
+      <h5>did you know?</h5>
+      <p class="advercase">“Stool is the most information-rich material you have ever laid eyes on”</p>
+      <p class="stool-quote__author">–Larry Smarr</p>
+    </div>
+
+    <div class="stool-definition">
+      <div class="stool-defn-1">
+        <p class="p2">It is among the most complete biological indicators of your general well-being.</p>
+      </div>
+      <div class="stool-defn-2">
+        <p class="p2">Your <span class="hl-green">gut flora, digestive efficiency, metabolic health, and immune system activity</span> are all reflected in this <span class="hl-red">complex blend of biological data.</span></p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="buttagain">
+  <div class="butt-again">
+    <h1>butt</h1>
+    <h1 class="h1__accent">again</h1>
+  </div>
+  <h5>it feels crappy to describe the shit you’re going through. . . with your shit  :( </h5>
+
+</section>
+<section class="still-disgusting">
+  <p class="p2">
+    Still disgusting? 100%.
+  </p>
+  <p class="p2">
+    Luckily, medical professionals figured out a way to talk about it without anyone dying of embarrassment
+  </p>
+  </section>
+
+  <section class="next-seventypes">
+    <h1>types of </h1>
+    <h1 class="h1__accent">shit</h1>
+
+  </section>
+
+<script src="script.js" defer></script>
+
+</body>
+</html>
