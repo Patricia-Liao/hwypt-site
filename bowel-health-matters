@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HWYPT-BristolStoolChart</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-2.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+
+
+</head>
+
+<body>
+
+ 
+    
+
+    <section class="bowelhealthmatters">
+        <img class="hero__video hero__still" src="assets/swirly-gut-freeze.png" alt="" aria-hidden="true">
+        
+        <!-- gif: on top -->
+        <img class="hero__video hero__gif" src="assets/swirly-gut-animated-enter.gif" alt="" aria-hidden="true">
+        <!-- Centre block -->
+        <div class="bhm-content">
+            <h2>Bowel Health Matters</h2>
+            <h5>and other matters on bowel health</h5>
+        </div>
+    </section>
+
+
+    <script src="script.js" defer></script>
+
+</body>
+</html>

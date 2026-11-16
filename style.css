@@ -411,6 +411,84 @@ img, video { display: block; max-width: 100%; }
 .hl-red   { color: var(--orange); }
 
 
+/* BUTTAGAIN */
+/* ============ Section: no background, so the body's shows through ============ */
+.again {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  align-content: center;
+  row-gap: 0.5rem;
+  overflow: hidden;      /* crops the gifs at the page edge, and hides the text while it's still off-screen */
+}
+
+/* ============ Text: staircase, each line starting a little further right ============ */
+.again__butt,
+.again__again,
+.again__note {
+  position: relative;
+  z-index: 1;            /* text sits above the gifs. Remove to put the gifs in front */
+}
+.again__butt  { grid-column: 2 / -1; }                      /* CUSTOMISE: the column numbers set where each line starts */
+.again__again { grid-column: 2 / -1; margin-left: 4%; }
+.again__note  { grid-column: 5 / 12; max-width: 28rem; margin-top: 1rem; }
+
+/* ============ Gifs ============ */
+.again__gif {
+  position: absolute;
+  width: clamp(9rem, 28vw, 30rem);    /* CUSTOMISE: gif size */
+  isolation: isolate;                 /* keeps the glow behind the gif but above the page */
+  pointer-events: none;
+}
+.again__gif img { width: 100%; height: auto; }
+
+/* the radial glow behind each gif */
+.again__gif::before {
+  content: '';
+  position: absolute;
+  inset: -25%;                        /* bigger than the gif so the glow can spread */
+  background: var(--glow);            /* <- rename to your saved radial-gradient variable */
+  translate: var(--glow-x, 0%) var(--glow-y, 0%);
+  z-index: -1;
+}
+
+/* left gif: lower, cut off by the left edge. Glow sits above it */
+.again__gif--left {
+  left: -5vw;
+  top: 56%;
+  translate: 0 -50%;
+  --glow-x: 5%;
+  --glow-y: -30%;
+}
+
+/* right gif: higher, cut off by the right edge. Glow sits below it */
+.again__gif--right {
+  right: -3vw;
+  top: 33%;
+  translate: 0 -50%;
+  --glow-x: 10%;
+  --glow-y: 40%;
+}
+
+/* ============ Mobile: everything stacks ============ */
+@media (max-width: 768px) {
+  .again {
+    grid-template-columns: 1fr;
+    padding: 6rem 1.25rem;
+    row-gap: 0.75rem;
+  }
+  .again__butt,
+  .again__again,
+  .again__note { grid-column: 1; margin-left: 0; }
+
+  .again__gif { width: 42vw; }
+  .again__gif--left  { top: auto; bottom: 3%; translate: none; }
+  .again__gif--right { top: 3%; translate: none; }
+}
+
+
 .buttagain {
   height: fit-content;
 }
@@ -494,9 +572,7 @@ img, video { display: block; max-width: 100%; }
   /* align-items: flex-start; */
   gap: 100px;
 }
-.intro-container:2nd-child {
-  
-}
+
 
 /* Panel 3: description */
 .hscroll__about { max-width: 50rem; color: var(--white); }
@@ -591,10 +667,7 @@ img, video { display: block; max-width: 100%; }
   
 }
 
-.next-test {
-  background: var(--black);
-  height: 100vh;
-}
+
 
 /* ---------- Photos, 769px and up: all seven on show ---------- */
 @media (min-width: 769px) {
@@ -721,6 +794,12 @@ img, video { display: block; max-width: 100%; }
   --pill-border: rgb(241 81 45 / 0.5);
 }
 
+.next-test {
+  background: var(--black);
+  height: 100vh;
+
+}
+
 /* ============ Mobile: everything stacks ============ */
 @media (max-width: 768px) {
   .type {
@@ -741,3 +820,13 @@ img, video { display: block; max-width: 100%; }
   .type__note--left  { align-self: flex-start; }
   .type__note--right { align-self: flex-end; }
 }
+
+
+
+
+
+
+
+
+
+

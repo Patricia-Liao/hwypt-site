@@ -1,0 +1,40 @@
+:root {
+  --redbrown:    #7F0A01;
+  --brown:  #85441E;
+  --white:     #FBEDE0;
+  --black: #291A06; 
+  --orange: #F1512D; 
+  --green: #C2D442; 
+
+  --autumn: #B6410E;
+  --saladgreen: #BEA004;
+  --weakshit: #F2C46E; 
+
+   /*gradient*/
+
+  --halloweenpoop: linear-gradient(180deg, var(--autumn) 0%, var(--black) 100%);
+  --peachy: linear-gradient(180deg, var(--orange) 0%, var(--white) 65%, rgba(251, 237, 224, 0) 100%);
+  --redbrowngradient: linear-gradient(180deg, var(--redbrown)   0%, var(--brown) 45%, rgba(133, 68, 30, 0) 85%);
+  --redbrowngradient-solid: linear-gradient(180deg, var(--redbrown)   0%, var(--brown) 100%);
+}
+
+
+.bowelhealthmatters {
+    height: 100vh;
+    background: var(--peachy);
+}
+
+.gutswirly {
+    z-index: 0;
+    position: absolute;
+    width:100vw;
+}
+.bhm-content {
+    position: relative; 
+    z-index: 1; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

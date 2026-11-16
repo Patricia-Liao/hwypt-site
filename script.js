@@ -56,6 +56,32 @@ gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
 });
 
 
+// text transitions//
 
+gsap.registerPlugin(ScrollTrigger);
 
+gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
+
+  // works for ANY section with class "slide-group"
+  gsap.utils.toArray('.slide-group').forEach((group) => {
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: group,
+        start: 'top 60%',                         // plays when the section's top reaches 60% down the screen
+        toggleActions: 'play none none reverse',  // plays going down, rewinds going up
+      },
+    });
+
+    // each [data-slide] line comes in from its side, one after another
+    group.querySelectorAll('[data-slide]').forEach((line, i) => {
+      tl.from(line, {
+        x: line.dataset.slide === 'left' ? '-100vw' : '100vw',
+        autoAlpha: 0,
+        duration: 1,
+        ease: 'power3.out',
+      }, i * 0.4);                                // each line starts 0.4s after the one before
+    });
+  });
+});
 // section scrolling //
