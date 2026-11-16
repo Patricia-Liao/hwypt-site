@@ -30,6 +30,7 @@ gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
 });
 
 
+
 // arc text Animation //
 
 gsap.registerPlugin(ScrollTrigger);
@@ -70,6 +71,10 @@ gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
         trigger: group,
         start: 'top 60%',                         // plays when the section's top reaches 60% down the screen
         toggleActions: 'play none none reverse',  // plays going down, rewinds going up
+        scrub: 4,
+        end: 'top 10%',
+        markers: true,
+        duration: 6,
       },
     });
 

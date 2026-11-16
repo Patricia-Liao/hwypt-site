@@ -20,7 +20,7 @@
 
   --peachyradial: radial-gradient(var(--orange),rgba(255, 239, 229, 0) 40%);
 
-  /* the five Bristol colours, top to bottom: fill these in */
+
   --bristol-1: #85441E;
   --bristol-2: #F2C46E;
   --bristol-3: #BEA004;
@@ -243,11 +243,19 @@ img, video { display: block; max-width: 100%; }
   height: 100vh;
 }
 
-.next {
+/* .next {
   height: 200vh;
   background-image: url(/assets/redbrown-swirly-stool.svg);
   background-position: center;
   background-size: cover;
+} */
+
+.video-section { background: #beb8b8; }
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fills the screen like a background */
 }
 
 .awkward-weird {
