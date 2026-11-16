@@ -17,6 +17,9 @@
   --redbrowngradient: linear-gradient(180deg, var(--redbrown)   0%, var(--brown) 45%, rgba(133, 68, 30, 0) 85%);
   --redbrowngradient-solid: linear-gradient(180deg, var(--redbrown)   0%, var(--brown) 100%);
 
+
+  --peachyradial: radial-gradient(var(--orange),rgba(255, 239, 229, 0) 40%);
+
   /* the five Bristol colours, top to bottom: fill these in */
   --bristol-1: #85441E;
   --bristol-2: #F2C46E;
@@ -52,6 +55,7 @@ body {
   overflow-x: hidden;            /* no sideways scroll */
   background: var(--white);
   background-image: url(/assets/toilet-paper-bg.png);
+  color: var(--redbrown);
 }
 
 
@@ -431,7 +435,7 @@ img, video { display: block; max-width: 100%; }
   position: relative;
   z-index: 1;            /* text sits above the gifs. Remove to put the gifs in front */
 }
-.again__butt  { grid-column: 2 / -1; }                      /* CUSTOMISE: the column numbers set where each line starts */
+.again__butt  { grid-column: 3 / -1; }                      /* CUSTOMISE: the column numbers set where each line starts */
 .again__again { grid-column: 2 / -1; margin-left: 4%; }
 .again__note  { grid-column: 5 / 12; max-width: 28rem; margin-top: 1rem; }
 
@@ -449,7 +453,7 @@ img, video { display: block; max-width: 100%; }
   content: '';
   position: absolute;
   inset: -25%;                        /* bigger than the gif so the glow can spread */
-  background: var(--glow);            /* <- rename to your saved radial-gradient variable */
+  background: var(--peachyradial);
   translate: var(--glow-x, 0%) var(--glow-y, 0%);
   z-index: -1;
 }
