@@ -14,6 +14,8 @@
 
   --halloweenpoop: linear-gradient(180deg, var(--autumn) 0%, var(--black) 100%);
   --peachy: linear-gradient(180deg, var(--orange) 0%, var(--white) 65%, rgba(251, 237, 224, 0) 100%);
+  --redbrowngradient: linear-gradient(180deg, var(--redbrown)   0%, var(--brown) 45%, rgba(133, 68, 30, 0) 85%);
+  --redbrowngradient-solid: linear-gradient(180deg, var(--redbrown)   0%, var(--brown) 100%);
 
   /* the five Bristol colours, top to bottom: fill these in */
   --bristol-1: #85441E;
@@ -162,12 +164,7 @@ img, video { display: block; max-width: 100%; }
   overflow: hidden;
   color: var(--white);
   /* CUSTOMISE: the % values control where the fade starts and ends */
-  background: linear-gradient(
-    180deg,
-    var(--redbrown)   0%,
-    var(--brown) 45%,
-    rgba(133, 68, 30, 0) 85%   /* #85441E at 0 opacity */
-  );
+  background: var(--redbrowngradient);
 }
 
 /* Video: sits behind everything, keeps its own aspect ratio (no stretching) */
@@ -436,7 +433,8 @@ img, video { display: block; max-width: 100%; }
 
 
 
-/* ============ CUSTOMISE: colours, spacing, panel sizes ============ */
+/* ============= PAGE-2: BRISTOL STOOL CHART ============= */
+
 /* ============ HSCROLL ============ */
 .hscroll {
   --panel-padding: clamp(1.5rem, 5vw, 6rem);
@@ -445,6 +443,7 @@ img, video { display: block; max-width: 100%; }
 }
 
 /* ---------- 1) DEFAULT: mobile + reduced motion. Panels STACK, no pin ---------- */
+
 .hscroll__track {
   display: flex;
   flex-direction: column;     /* <- this was "row". It's what makes mobile stack */
@@ -479,25 +478,37 @@ img, video { display: block; max-width: 100%; }
   }
 
 /* Panel 2: big title (stacked by default) */
-.hscroll__panel--intro { color: var(--white); }
+.hscroll__panel--intro { 
+  color: var(--white); 
+}
+.bigger-container {
+  background: var(--redbrown);
+  padding: var(--panel-padding);
+  border-radius: 600px;
+
+}
 .hscroll__panel--intro h3 { color: var(--green); }
 .intro-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  /* align-items: flex-start; */
+  gap: 100px;
+}
+.intro-container:2nd-child {
+  
 }
 
 /* Panel 3: description */
 .hscroll__about { max-width: 50rem; color: var(--white); }
 .hscroll__about h5 { color: var(--green); }
 
+
+/* ==== end of horizontal scroll ==== */
 .real-poop {
   display: flex;
   gap: 0.75rem;
   overflow-x: auto;
-  scrollbar-width: none;                   /* hide the scrollbar (Firefox) */
-
-  /* run edge to edge, but line up with the text at the start */
+  scrollbar-width: none;
   margin-inline: calc(var(--panel-padding) * -1);
   padding-inline: var(--panel-padding);
   scroll-padding-inline: var(--panel-padding);
@@ -573,7 +584,8 @@ img, video { display: block; max-width: 100%; }
   .hscroll__panel--intro h3 { white-space: nowrap; }
 
   /* Panel 3 */
-  .hscroll__panel--about { --panel-w: 100vw;
+  .hscroll__panel--about { 
+  --panel-w: 100vw;
   display: flex;
   flex-direction: row;} 
   
