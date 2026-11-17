@@ -72,7 +72,7 @@ gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
         toggleActions: 'play none none reverse',  // plays going down, rewinds going up
         scrub: 4,
         end: 'top 10%',
-        markers: true,
+        // markers: true,
         duration: 6,
       },
     });

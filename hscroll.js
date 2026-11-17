@@ -1,41 +1,41 @@
-// snakepoop video scrolltrigger animation //
+// // snakepoop video scrolltrigger animation //
 
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
-const video = document.querySelector("#video");
+// const video = document.querySelector("#video");
 
-function setupScrollVideo() {
+// function setupScrollVideo() {
 
-  // Make sure video doesn't play independently
-  video.pause();
+//   // Make sure video doesn't play independently
+//   video.pause();
 
-  // Set video to the beginning
-  video.currentTime = 0;
+//   // Set video to the beginning
+//   video.currentTime = 0;
 
-  gsap.to(video, {
-    currentTime: video.duration,
-    ease: "none",
+//   gsap.to(video, {
+//     currentTime: video.duration,
+//     ease: "none",
 
-    scrollTrigger: {
-      trigger: ".video-section",
-      start: "top top",
-      end: "+=3000",
-      scrub: 1,
-      pin: true,
-      anticipatePin: 1
-    }
-  });
-}
+//     scrollTrigger: {
+//       trigger: ".video-section",
+//       start: "top top",
+//       end: "+=3000",
+//       scrub: 1,
+//       pin: true,
+//       anticipatePin: 1
+//     }
+//   });
+// }
 
-// Wait for video metadata
-if (video.readyState >= 1) {
-  setupScrollVideo();
-} else {
-  video.addEventListener("loadedmetadata", setupScrollVideo, {
-    once: true
-  });
-}
+// // Wait for video metadata
+// if (video.readyState >= 1) {
+//   setupScrollVideo();
+// } else {
+//   video.addEventListener("loadedmetadata", setupScrollVideo, {
+//     once: true
+//   });
+// }
 
 
 
