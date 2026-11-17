@@ -30,7 +30,6 @@ gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
 });
 
 
-
 // arc text Animation //
 
 gsap.registerPlugin(ScrollTrigger);

@@ -254,9 +254,14 @@ img, video { display: block; max-width: 100%; }
 
 video {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   object-fit: cover; /* fills the screen like a background */
 }
+
+/* .hero-intro {
+  z-index: 1;
+  position: absolute;
+} */
 
 .awkward-weird {
   position: relative;
