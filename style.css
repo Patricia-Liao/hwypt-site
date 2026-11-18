@@ -243,12 +243,6 @@ img, video { display: block; max-width: 100%; }
   height: 100vh;
 }
 
-/* .next {
-  height: 200vh;
-  background-image: url(/assets/redbrown-swirly-stool.svg);
-  background-position: center;
-  background-size: cover;
-} */
 
 .video-section { background: #beb8b8; }
 
@@ -489,6 +483,15 @@ video {
   --glow-y: 40%;
 }
 
+.still-disgusting {
+  height: 100vh;
+  display:flex ;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
 /* ============ Mobile: everything stacks ============ */
 @media (max-width: 768px) {
   .again {
@@ -558,6 +561,9 @@ video {
 .hscroll__panel--title {
   flex-direction: column;
   gap: 1rem;
+  background: var(--halloweenpoop);
+  height: 100vh; 
+
 }
 .hscroll__seven {
   font-style: italic;
@@ -576,53 +582,61 @@ video {
 .hscroll__panel--intro { 
   color: var(--white); 
 }
-.bigger-container {
-  background: var(--redbrown);
-  padding: var(--panel-padding);
-  border-radius: 600px;
-
-}
 .hscroll__panel--intro h3 { color: var(--green); }
 .intro-container {
   display: flex;
   flex-direction: column;
-  /* align-items: flex-start; */
+  align-items: flex-start;
   gap: 100px;
 }
 
+.intro-container h3 {
+  background: var(--halloweenpoop);
+  padding: var(--panel-padding);
+  border-radius: 600px;
 
-/* Panel 3: description */
+}
+
 .hscroll__about { max-width: 50rem; color: var(--white); }
 .hscroll__about h5 { color: var(--green); }
 
 
 /* ==== end of horizontal scroll ==== */
+
+.real-poop-sect {
+  background: var(--black);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: center;
+  color: var(--white);
+}
+.real-poop-sect p {
+  color: var(--orange);
+}
+
+
+
 .real-poop {
   display: flex;
+  flex-direction: row;
   gap: 0.75rem;
-  overflow-x: auto;
-  scrollbar-width: none;
-  margin-inline: calc(var(--panel-padding) * -1);
-  padding-inline: var(--panel-padding);
-  scroll-padding-inline: var(--panel-padding);
 }
-.real-poop::-webkit-scrollbar { display: none; }
 
-.real-poop img {
-  object-fit: fill;
-  scroll-snap-align: start;
-  /* filter: blur(20px); */
-}
 .poop-img-container {
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 300px;
   background: var(--green);
-  aspect-ratio: 1;
+  width: 194px;
+  height: 450px; 
 }
 
 .poop-img-container img {
   filter: blur(20px) opacity(50%);
+  height: 100%;
   object-fit: fill;
+  width: auto;
 }
 
 .real-poop img:hover {
@@ -672,7 +686,7 @@ video {
     align-items: center;
     gap: 1.2rem;
   }
-  .intro-container { flex-direction: row; align-items: baseline; }
+  .intro-container { flex-direction: row; align-items: center; }
   .hscroll__panel--intro .hscroll__title,
   .hscroll__panel--intro h3 { white-space: nowrap; }
 
@@ -683,60 +697,6 @@ video {
   flex-direction: row;} 
   
 }
-
-
-
-/* ---------- Photos, 769px and up: all seven on show ---------- */
-@media (min-width: 769px) {
-  .real-poop {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: clamp(0.5rem, 1vw, 1rem);
-    overflow: visible;
-    margin-inline: 0;
-    padding-inline: 0;
-  }
-  .real-poop img { flex: none; width: 100%; scroll-snap-align: none; }
-
-}
-
-/* ============ Small screens ============*/
- 
-@media (max-aspect-ratio: 1/1) {
-  .hero__video {
-    width: 170%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .butt__text tspan { fill-opacity: 0; }
-}
-
-@media (max-width: 768px) {
-    .stoolrich { --content-w: 88vw; --swirl-reach: 30vw; }
-  .stoolrich__swirl { opacity: 0.4; }   /* faint, so they don't fight the text */
-}
-
-@media screen and (max-width: 500px) {
-  
-.stool-definition {
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-}
-
-.stool-defn-1 {
-  grid-column: 1/3;
-  grid-row: 1/2;
-}
-.stool-defn-2{
-  grid-row: 2/3;
-  grid-column: 1/-1;
-}
-
-}
-
 
 /* SEVEN-TYPES BRISTOL STOOL CHART SECTION */
 
@@ -811,11 +771,48 @@ video {
   --pill-border: rgb(241 81 45 / 0.5);
 }
 
-.next-test {
-  background: var(--black);
-  height: 100vh;
+
+
+/* ============ Small screens ============*/
+ 
+@media (max-aspect-ratio: 1/1) {
+  .hero__video {
+    width: 170%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .butt__text tspan { fill-opacity: 0; }
+}
+
+@media (max-width: 768px) {
+    .stoolrich { --content-w: 88vw; --swirl-reach: 30vw; }
+  .stoolrich__swirl { opacity: 0.4; }   /* faint, so they don't fight the text */
+}
+
+@media screen and (max-width: 500px) {
+  
+.stool-definition {
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+}
+
+.stool-defn-1 {
+  grid-column: 1/3;
+  grid-row: 1/2;
+}
+.stool-defn-2{
+  grid-row: 2/3;
+  grid-column: 1/-1;
+}
 
 }
+
+
+
+
 
 /* ============ Mobile: everything stacks ============ */
 @media (max-width: 768px) {
