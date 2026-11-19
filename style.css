@@ -30,10 +30,11 @@
   --bristol-gradient: linear-gradient(
     180deg,
     var(--bristol-1)   0%,
-    var(--bristol-2)  25%,
-    var(--bristol-3)  50%,
-    var(--bristol-4)  75%,
-    var(--bristol-5) 100%
+    var(--bristol-2)  20%,
+    var(--bristol-3)  40%,
+    var(--bristol-4)  60%,
+    var(--bristol-5) 80%,
+    rgba(242, 196, 110, 0.5)100%
   );
 
 
@@ -603,22 +604,25 @@ video {
 
 /* ==== end of horizontal scroll ==== */
 
-.real-poop-sect {
-  background: var(--black);
+.real-poop, .bsc-chart {
   height: 100vh;
   display: flex;
   flex-direction: column;
   position: relative;
   align-items: center;
   color: var(--white);
+  flex-wrap: wrap;
+  background: var(--black); 
+
+
 }
-.real-poop-sect p {
+
+
+.real-poop p {
   color: var(--orange);
 }
 
-
-
-.real-poop {
+.imgs-container {
   display: flex;
   flex-direction: row;
   gap: 0.75rem;
@@ -643,7 +647,18 @@ video {
   filter: blur(0);
 }
 
+.bsc-chart h4 {
+  background: var(--redbrowngradient-solid);
+  padding: clamp(12px, 1.5vw, 26px)
+           clamp(16px, 4vw, 70px);
+  border-radius: 300px;
+}
+.bsc-chart-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 
+}
 
 
 /* ---------- 3) DESKTOP + TABLET: horizontal ----------*/
@@ -770,7 +785,14 @@ video {
   --pill-text:   var(--white);
   --pill-border: rgb(241 81 45 / 0.5);
 }
-
+.type-close {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.type-close h5 {
+  color: var(--white);
+}
 
 
 /* ============ Small screens ============*/
@@ -788,7 +810,7 @@ video {
 }
 
 @media (max-width: 768px) {
-    .stoolrich { --content-w: 88vw; --swirl-reach: 30vw; }
+    .stoolrich { --content-w: 88vw; --swirl-reach: 30vw;}
   .stoolrich__swirl { opacity: 0.4; }   /* faint, so they don't fight the text */
 }
 

@@ -1,41 +1,6 @@
 // // snakepoop video scrolltrigger animation //
 
 
-// gsap.registerPlugin(ScrollTrigger);
-
-// const video = document.querySelector("#video");
-
-// function setupScrollVideo() {
-
-//   // Make sure video doesn't play independently
-//   video.pause();
-
-//   // Set video to the beginning
-//   video.currentTime = 0;
-
-//   gsap.to(video, {
-//     currentTime: video.duration,
-//     ease: "none",
-
-//     scrollTrigger: {
-//       trigger: ".video-section",
-//       start: "top top",
-//       end: "+=3000",
-//       scrub: 1,
-//       pin: true,
-//       anticipatePin: 1
-//     }
-//   });
-// }
-
-// // Wait for video metadata
-// if (video.readyState >= 1) {
-//   setupScrollVideo();
-// } else {
-//   video.addEventListener("loadedmetadata", setupScrollVideo, {
-//     once: true
-//   });
-// }
 
 
 
@@ -79,3 +44,4 @@
   window.addEventListener('load', () => ScrollTrigger.refresh());
   document.fonts.ready.then(() => ScrollTrigger.refresh());
 })();
+
