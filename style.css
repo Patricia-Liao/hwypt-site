@@ -741,7 +741,7 @@ video {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   padding: var(--pad);
   text-align: center;
   position: relative;
