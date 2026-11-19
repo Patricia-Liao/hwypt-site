@@ -36,8 +36,25 @@
         </div>
     </section>
 
+    <section>
+        <div>
+  <p class="p1">Normal isn’t one thing. It’s a range, and everyone’s sits somewhere different. Here’s what the usual range looks like.</p>
+  <div class="normal-cards">
+    <div class="normal-brown-cards">
+      <h4 class="brown-cards-front">FIFTY SHADES OF BROWN</h4>
+      <div class="brown-cards-back">
+        <h5>FREQUENCY</h5>
+        <p class="p2">What stamina! But you do you. Anywhere from <span>3 times a day to 3 times a week</span> can be normal. What matters is what's usual for you.</p>
+      </div>
+    </div>
+    <div class="normal-brown-cards"><h4>FIRM & FLACCID<h4></h4></div>
+    <div class="normal-brown-cards"><h4>THREE TIMES, THREE TIMES!<h4></h4></div> 
+  </div>
+</div>
+    </section>
 
-    <script src="script.js" defer></script>
+
+    <!-- <script src="script.js" defer></script> -->
 
 </body>
 </html>

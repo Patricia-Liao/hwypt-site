@@ -25,6 +25,7 @@ gsap.matchMedia().add('(prefers-reduced-motion: no-preference)', () => {
         start: 'top 80%',     // fires when the line's top reaches 90% down the screen
         once: true,
       },
+      scrub: 1
     });
   });
 });

@@ -1,26 +1,26 @@
+
 :root {
-  --redbrown:    #7F0A01;
-  --brown:  #85441E;
-  --white:     #FBEDE0;
-  --black: #291A06; 
-  --orange: #F1512D; 
-  --green: #C2D442; 
+  --redbrown:   #7F0A01;
+  --brown:      #85441E;
+  --white:      #FBEDE0;
+  --black:      #291A06;
+  --orange:     #F1512D;
+  --green:      #C2D442;
 
-  --autumn: #B6410E;
+  --autumn:     #B6410E;
   --saladgreen: #BEA004;
-  --weakshit: #F2C46E; 
+  --weakshit:   #F2C46E;
 
-   /*gradient*/
-
+  /* gradients */
   --halloweenpoop: linear-gradient(180deg, var(--autumn) 0%, var(--black) 100%);
   --peachy: linear-gradient(180deg, var(--orange) 0%, var(--white) 65%, rgba(251, 237, 224, 0) 100%);
-  --redbrowngradient: linear-gradient(180deg, var(--redbrown)   0%, var(--brown) 45%, rgba(133, 68, 30, 0) 85%);
-  --redbrowngradient-solid: linear-gradient(180deg, var(--redbrown)   0%, var(--brown) 100%);
+  --peachyreverse: linear-gradient(180deg, rgba(251, 237, 224, 0) 0%, var(--orange)100%); 
 
+  --redbrowngradient:       linear-gradient(180deg, var(--redbrown) 0%, var(--brown) 45%, rgba(133, 68, 30, 0) 85%);
+  --redbrowngradient-solid: linear-gradient(180deg, var(--redbrown) 0%, var(--brown) 100%);
+  --peachyradial:           radial-gradient(var(--orange), rgba(255, 239, 229, 0) 40%);
 
-  --peachyradial: radial-gradient(var(--orange),rgba(255, 239, 229, 0) 40%);
-
-
+  /* bristol section */
   --bristol-1: #85441E;
   --bristol-2: #F2C46E;
   --bristol-3: #BEA004;
@@ -33,20 +33,35 @@
     var(--bristol-2)  20%,
     var(--bristol-3)  40%,
     var(--bristol-4)  60%,
-    var(--bristol-5) 80%,
-    rgba(242, 196, 110, 0.5)100%
+    var(--bristol-5)  80%,
+    rgba(242, 196, 110, 0.5) 100%
   );
 
-
-    --pad: clamp(1rem, 3vw, 2.5rem);
+  --pad: clamp(1rem, 3vw, 2.5rem);
 }
 
 
-  
+/* ============ 2. Fonts ============ */
+
+/* Advercase (local demo files). Clash Display + Teachers load in the HTML <head> */
+@font-face {
+  font-family: "Advercase";
+  src: url("./fonts/Advercase-Font-Demo-Regular.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Advercase";
+  src: url("./fonts/Advercase-Font-Demo-Italic.otf") format("opentype");
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
 
 
-
-/* ============ Base ============ */
+/* ============ 3. Base ============ */
 *, *::before, *::after { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
@@ -55,49 +70,29 @@ body {
   margin: 0;
   overflow-x: hidden;            /* no sideways scroll */
   background: var(--white);
-  background-image: url(/assets/toilet-paper-bg.png);
+  background-image: url("assets/toilet-paper-bg.png");
   color: var(--redbrown);
 }
 
+img, video { display: block; max-width: 100%; }
 
-/* ============ Typography ============ */
 
-/* Adversecase Demo Font  */
+/* ============ 4. Typography ============ */
 
-@font-face {
-    font-family: "Advercase";
-    src: url("./fonts/Advercase-Font-Demo-Regular.otf") format("opentype");
-    font-weight: 800;
-    font-style: normal;
-    font-display: swap;
-    line-height: 0.8;
-    
-}
-
-@font-face {
-    font-family: "Advercase";
-    src: url("./fonts/Advercase-Font-Demo-Italic.otf") format("opentype");
-    font-weight: 200;
-    font-style: italic;
-    font-display: swap;
-    line-height: 0.8;
-} 
-
+/* Advercase */
 h1, .h1__accent, h2, .h2__accent, .advercase {
   font-family: 'Advercase', serif;
   text-transform: uppercase;
   font-size: clamp(100px, 20.25vw, 350px);
-  margin: 0px;
-  padding: 0px;
+  margin: 0;
+  padding: 0;
   line-height: 1;
 }
 
-.h1__accent {
-  font-style: italic;
-}
-h2 {
-  font-size: clamp(80px, 14.47vw, 250px);
-}
+.h1__accent { font-style: italic; }
+
+h2 { font-size: clamp(80px, 14.47vw, 250px); }
+
 .h2__accent {
   font-size: clamp(80px, 14.47vw, 250px);
   font-style: italic;
@@ -110,54 +105,47 @@ h2 {
   line-height: 107.7%;
 }
 
-/* Clash Display Font */
-
-h3, h4, .quote-clash, h5 {
-font-family: "Clash Display";
-font-style: normal;
-line-height: 107.654%; /* 11.43825rem */
-font-weight: 600;
-margin: 0px;
+/* Clash Display */
+h3, h4, h5, .quote-clash {
+  font-family: "Clash Display", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 107.654%;
+  margin: 0;
 }
 
 h3 {
-
-font-weight: 700;
-text-transform: uppercase;
-font-size: clamp(60px, 9.84vw, 170px);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: clamp(60px, 9.84vw, 170px);
 }
 
 h4 {
-text-transform: uppercase;
-font-size: clamp(36px, 5.56vw, 96px);
-}
-
-.quote-clash {
-  font-size: clamp(48px, 7.41vw, 128px);
+  text-transform: uppercase;
+  font-size: clamp(36px, 5.56vw, 96px);
 }
 
 h5 {
-font-size: clamp(24px, 2.78vw, 48px);
-font-weight: 500;
+  font-size: clamp(24px, 2.78vw, 48px);
+  font-weight: 500;
 }
 
-/* Teachers font */
+.quote-clash { font-size: clamp(48px, 7.41vw, 128px); }
 
+/* Teachers */
 p, .p1, .p2 {
   font-family: "Teachers", sans-serif;
   font-weight: 500;
 }
 
-.p1 {
-  font-size: clamp(18px, 2.08vw, 36px);
-}
-.p2 {
-  font-size: clamp(14px, 1.39vw, 24px);
-}
+.p1 { font-size: clamp(18px, 2.08vw, 36px); }
+.p2 { font-size: clamp(14px, 1.39vw, 24px); }
 
 
+/* =========================================================
+   5. SECTIONS
+   ========================================================= */
 
-img, video { display: block; max-width: 100%; }
 
 /* ============ Hero ============ */
 .hero {
@@ -168,11 +156,10 @@ img, video { display: block; max-width: 100%; }
   grid-template-rows: auto 1fr auto;
   overflow: hidden;
   color: var(--white);
-  /* CUSTOMISE: the % values control where the fade starts and ends */
   background: var(--redbrowngradient);
 }
 
-/* Video: sits behind everything, keeps its own aspect ratio (no stretching) */
+/* Video/gif: sits behind everything, keeps its own aspect ratio (no stretching) */
 .hero__video {
   position: absolute;
   top: 0;
@@ -189,10 +176,11 @@ img, video { display: block; max-width: 100%; }
 .hero__still {
   opacity: 0;
   visibility: hidden;
-  
 }
 
-.hero__nav, .hero__center, .hero__bottom { position: relative; z-index: 1; }
+.hero__nav,
+.hero__center,
+.hero__bottom { position: relative; z-index: 1; }
 
 /* ---- Nav ---- */
 .hero__nav {
@@ -228,11 +216,10 @@ img, video { display: block; max-width: 100%; }
 }
 
 .hero__logo {
-
-  width: var(--logo-width);
+  width: var(--logo-width);          /* NOTE: --logo-width isn't defined anywhere yet */
   aspect-ratio: 3.5 / 1;             /* the shape of the box you want to keep */
-  object-fit: cover;               /* crops instead of stretching */
-  object-position: center 55%;     /* which part to keep: 0% = top, 100% = bottom */
+  object-fit: cover;                 /* crops instead of stretching */
+  object-position: center 55%;       /* which part to keep: 0% = top, 100% = bottom */
 }
 
 .hero__nextmessage {
@@ -244,7 +231,17 @@ img, video { display: block; max-width: 100%; }
   height: 100vh;
 }
 
+/* portrait screens: make the swirl wider so it still fills the top */
+@media (max-aspect-ratio: 1/1) {
+  .hero__video {
+    width: 170%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
 
+
+/* ============ Video ============ */
 .video-section { background: #beb8b8; }
 
 video {
@@ -253,11 +250,8 @@ video {
   object-fit: cover; /* fills the screen like a background */
 }
 
-/* .hero-intro {
-  z-index: 1;
-  position: absolute;
-} */
 
+/* ============ Awkward / Weird ============ */
 .awkward-weird {
   position: relative;
   height: 100vh;
@@ -265,23 +259,23 @@ video {
   flex-direction: column;
   overflow: hidden;
   color: var(--white);
-
   background: linear-gradient(
     180deg,
-    var(--redbrown)   20%,
+    var(--redbrown) 20%,
     var(--brown) 65%,
     rgba(133, 68, 30, 0) 100%   /* #85441E at 0 opacity */
   );
 }
-.awkward {
-  padding-top: 200px;
-}
 
-.awkward-weird > div:first-child h5 {
+.awkward { padding-top: 200px; }
+
+/* only the first line's h5 ("i mean, yeah...") */
+.awkward > div:first-child > h5 {
   margin-left: 6%;
   margin-bottom: 0.4em;
 }
-.green{
+
+.green {
   color: var(--green);
   display: flex;
   justify-content: flex-end;
@@ -291,7 +285,11 @@ video {
 }
 
 
+/* ============ Butt ============ */
 .butt {
+  --word-size: 110px;      /* CUSTOMISE: BUTT (SVG units, scales with the artwork) */
+  --caption-size: 22px;    /* CUSTOMISE: the caption */
+
   height: fit-content;
   display: grid;
   place-items: center;
@@ -305,34 +303,29 @@ video {
   max-width: 1728px;
 }
 
-.butt__text { 
-  display: block; 
-  width: 100%; 
-  height: auto; 
+.butt__text {
+  display: block;
+  width: 100%;
+  height: auto;
   overflow: visible;
-}
-
-/* font sizes are in SVG units, so they scale with the artwork */
-.butt {
-  --word-size: 110px;      /* CUSTOMISE: BUTT */
-  --caption-size: 22px;    /* CUSTOMISE: the caption */
 }
 
 /* three class names deep, so a stray rule elsewhere can't beat it */
 .butt .butt__text .butt__word {
-  font-family: 'Clash Display';
+  font-family: 'Clash Display', sans-serif;
   font-weight: 800;
   font-size: var(--word-size);
   fill: var(--redbrown);
 }
 
 .butt .butt__text .butt__caption {
-  font-family: 'Clash Display';
+  font-family: 'Clash Display', sans-serif;
   font-weight: 800;
   font-size: var(--caption-size);
   letter-spacing: 0.02em;
   fill: var(--redbrown);
 }
+
 .is-orange { fill: var(--orange); }
 
 /* the gif sits over the middle of the arcs */
@@ -343,20 +336,25 @@ video {
   width: 57%;
   height: auto;
   translate: -50% -50%;
-
 }
 
-/* ============ Section ============ */
+/* letters start invisible, JS fades them in. Skipped for reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  .butt__text tspan { fill-opacity: 0; }
+}
+
+
+/* ============ Stoolrich ============ */
 .stoolrich {
-  position: relative;      
-  overflow: visible;          
+  position: relative;
+  overflow: visible;
   min-height: 100vh;
   display: grid;
   place-items: center;         /* centres the content block */
   background: var(--halloweenpoop);
 }
 
-/* ============ Swirls ============ */
+/* ---- Swirls ---- */
 .stoolrich__swirl {
   position: absolute;
   top: 50%;
@@ -368,7 +366,7 @@ video {
 .stoolrich__swirl--left  { left: -9%; }               /* CUSTOMISE: more negative = more hidden */
 .stoolrich__swirl--right { right: -9%; scale: -1 1; }
 
-/* ============ Content ============ */
+/* ---- Content ---- */
 .stoolrich-container {
   position: relative;
   z-index: 1;                  /* sits above the swirls */
@@ -376,25 +374,21 @@ video {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  /* gap: clamp(2rem, 5vw, 4rem); */
 }
 
-.stool-quote { 
-  text-align: center; 
-  color: var(--green); 
-  gap: 50px;
+.stool-quote {
+  text-align: center;
+  color: var(--green);
+  gap: 50px;                   /* NOTE: does nothing until this is display: flex/grid */
 }
-.stool-quote__author {
-  font-size: clamp(14px, 1.39vw, 24px);
-}
+.stool-quote__author { font-size: clamp(14px, 1.39vw, 24px); }
 
-/* ============ The two pills ============ */
+/* ---- The two pills ---- */
 .stool-definition {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: 1fr 1fr;
   place-items: center;
-
 }
 
 .stool-definition .p2 {
@@ -405,26 +399,39 @@ video {
   box-shadow: 1px 2px 23.5px 0 rgba(0, 0, 0, 0.20);
   color: var(--white);
 }
-.stool-defn-1:hover, .stool-defn-2:hover{
-  transform: translateY(-10px);
-}
+
 .stool-defn-1 {
-  grid-column: 3/8;
-  grid-row: 1/2;
+  grid-column: 3 / 8;
+  grid-row: 1 / 2;
   transition: transform 0.3s ease;
 }
-.stool-defn-2{
-  grid-row: 2/3;
-  grid-column: 6/-2;
+.stool-defn-2 {
+  grid-column: 6 / -2;
+  grid-row: 2 / 3;
   transition: transform 0.3s ease;
 }
+.stool-defn-1:hover,
+.stool-defn-2:hover { transform: translateY(-10px); }
 
 .hl-green { color: var(--green); }
 .hl-red   { color: var(--orange); }
 
+@media (max-width: 768px) {
+  .stoolrich__swirl { opacity: 0.4; }   /* faint, so they don't fight the text */
+}
 
-/* BUTTAGAIN */
-/* ============ Section: no background, so the body's shows through ============ */
+@media (max-width: 500px) {
+  .stool-definition {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+  .stool-defn-1 { grid-column: 1 / 3;  grid-row: 1 / 2; }
+  .stool-defn-2 { grid-column: 1 / -1; grid-row: 2 / 3; }
+}
+
+
+/* ============ Butt again ============ */
+/* no background, so the body's shows through */
 .again {
   position: relative;
   min-height: 100vh;
@@ -436,7 +443,7 @@ video {
   overflow: hidden;      /* crops the gifs at the page edge, and hides the text while it's still off-screen */
 }
 
-/* ============ Text: staircase, each line starting a little further right ============ */
+/* ---- Text: staircase, each line starting a little further right ---- */
 .again__butt,
 .again__again,
 .again__note {
@@ -447,7 +454,7 @@ video {
 .again__again { grid-column: 2 / -1; margin-left: 4%; }
 .again__note  { grid-column: 5 / 12; max-width: 28rem; margin-top: 1rem; }
 
-/* ============ Gifs ============ */
+/* ---- Gifs ---- */
 .again__gif {
   position: absolute;
   width: clamp(9rem, 28vw, 30rem);    /* CUSTOMISE: gif size */
@@ -484,16 +491,6 @@ video {
   --glow-y: 40%;
 }
 
-.still-disgusting {
-  height: 100vh;
-  display:flex ;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-
-}
-
-/* ============ Mobile: everything stacks ============ */
 @media (max-width: 768px) {
   .again {
     grid-template-columns: 1fr;
@@ -510,42 +507,27 @@ video {
 }
 
 
-.buttagain {
-  height: fit-content;
-}
-.butt-again {
-  background: var(--peachy);
-  color: var(--redbrown);
+/* ============ Still disgusting ============ */
+.still-disgusting {
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center; 
-}
-
-.next-seventypes {
-  background: var(--halloweenpoop);
-  color: var(--white);
-}
-.next-seventypes .h1__accent {
-  color: var(--green);
+  align-items: center;
 }
 
 
-
-/* ============= PAGE-2: BRISTOL STOOL CHART ============= */
-
-/* ============ HSCROLL ============ */
+/* ============ Hscroll (Bristol chart intro) ============ */
 .hscroll {
   --panel-padding: clamp(1.5rem, 5vw, 6rem);
   --panel-w: 100vw;           /* default panel width. Override per panel below */
   position: relative;
 }
 
-/* ---------- 1) DEFAULT: mobile + reduced motion. Panels STACK, no pin ---------- */
-
+/* ---- DEFAULT: mobile + reduced motion. Panels STACK, no pin ---- */
 .hscroll__track {
   display: flex;
-  flex-direction: column;     /* <- this was "row". It's what makes mobile stack */
+  flex-direction: column;     /* stacked on mobile; becomes "row" on desktop below */
   background: var(--halloweenpoop);
 }
 
@@ -558,110 +540,45 @@ video {
   justify-content: center;
 }
 
-/* Panel 1: title card (stacked by default) */
+/* Panel 1: title card */
 .hscroll__panel--title {
   flex-direction: column;
   gap: 1rem;
   background: var(--halloweenpoop);
-  height: 100vh; 
-
+  height: 100vh;
 }
 .hscroll__seven {
   font-style: italic;
   color: var(--green);
-  font-size: 200px;
   font-size: clamp(157px, 31.8vw, 550px);
   line-height: 0.8;
 }
 .hscroll__lines { color: var(--white); }
+
 .of-shit { display: flex; flex-direction: column; gap: 12px; }
 .of-shit .h1__accent { color: var(--green); }
-.of-shit img { width: clamp(2rem, 5vw, 4rem); transform: rotate(90deg);
-  }
+.of-shit img { width: clamp(2rem, 5vw, 4rem); transform: rotate(90deg); }
 
-/* Panel 2: big title (stacked by default) */
-.hscroll__panel--intro { 
-  color: var(--white); 
-}
+/* Panel 2: big title */
+.hscroll__panel--intro { color: var(--white); }
 .hscroll__panel--intro h3 { color: var(--green); }
+
 .intro-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 100px;
 }
-
 .intro-container h3 {
   background: var(--halloweenpoop);
   padding: var(--panel-padding);
   border-radius: 600px;
-
 }
 
 .hscroll__about { max-width: 50rem; color: var(--white); }
 .hscroll__about h5 { color: var(--green); }
 
-
-/* ==== end of horizontal scroll ==== */
-
-.real-poop, .bsc-chart {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  align-items: center;
-  color: var(--white);
-  flex-wrap: wrap;
-  background: var(--black); 
-
-
-}
-
-
-.real-poop p {
-  color: var(--orange);
-}
-
-.imgs-container {
-  display: flex;
-  flex-direction: row;
-  gap: 0.75rem;
-}
-
-.poop-img-container {
-  overflow: hidden;
-  border-radius: 300px;
-  background: var(--green);
-  width: 194px;
-  height: 450px; 
-}
-
-.poop-img-container img {
-  filter: blur(20px) opacity(50%);
-  height: 100%;
-  object-fit: fill;
-  width: auto;
-}
-
-.real-poop img:hover {
-  filter: blur(0);
-}
-
-.bsc-chart h4 {
-  background: var(--redbrowngradient-solid);
-  padding: clamp(12px, 1.5vw, 26px)
-           clamp(16px, 4vw, 70px);
-  border-radius: 300px;
-}
-.bsc-chart-container {
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-
-}
-
-
-/* ---------- 3) DESKTOP + TABLET: horizontal ----------*/
+/* ---- DESKTOP + TABLET: horizontal ---- */
 @media (min-width: 769px) and (prefers-reduced-motion: no-preference) {
 
   .hscroll {
@@ -684,15 +601,13 @@ video {
   }
 
   /* Panel 1 goes back to a row */
-  .hscroll__panel--title { 
-    flex-direction: row; 
-    align-items: center; 
-    gap: 5rem; }
-    
-  .of-shit { display: flex; flex-direction: row; gap: 12px; }
-  .of-shit img {
-    transform: rotate(0deg);
+  .hscroll__panel--title {
+    flex-direction: row;
+    align-items: center;
+    gap: 5rem;
   }
+  .of-shit { flex-direction: row; }
+  .of-shit img { transform: rotate(0deg); }
 
   /* Panel 2: as wide as its title */
   .hscroll__panel--intro {
@@ -705,29 +620,75 @@ video {
   .hscroll__panel--intro .hscroll__title,
   .hscroll__panel--intro h3 { white-space: nowrap; }
 
-  /* Panel 3 */
-  .hscroll__panel--about { 
-  --panel-w: 100vw;
+  /* Panel 3 (not in the HTML yet) */
+  .hscroll__panel--about {
+    --panel-w: 100vw;
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+
+/* ============ Real poop photos ============ */
+.real-poop,
+.bsc-chart {
+  height: 100vh;
   display: flex;
-  flex-direction: row;} 
-  
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  position: relative;
+  color: var(--white);
+  background: var(--black);
 }
 
-/* SEVEN-TYPES BRISTOL STOOL CHART SECTION */
+.real-poop p { color: var(--orange); }
 
-
-/* ============ The long gradient ============ */
-.bristol {
-  background: var(--bristol-gradient);
+.imgs-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
 }
 
-/* ============ One article ============ */
+.poop-img-container {
+  position: relative;
+  overflow: hidden;            /* clips the image to the pill's rounded shape */
+  border-radius: 999px;        /* full pill ends */
+  aspect-ratio: 129 / 300;     /* CUSTOMISE: the pill's shape (width / height) */
+  background: var(--green);
+  width: 12.04vw;
+  height: 40.29vh;             /* NOTE: with both width + height set, aspect-ratio is ignored */
+}
+
+.poop-img-container img {
+  width: 100%;
+  height: 100%;                /* fill the container, not just its width */
+  object-fit: cover;           /* cover the whole area without squashing */
+  object-position: center;     /* which part stays visible if some gets cropped */
+}
+
+.real-poop img { filter: blur(20px) opacity(50%); }
+
+/* un-blur on hover, or when a keyboard user tabs onto a pill */
+.real-poop img:hover,
+.poop-img-container:focus-visible img { filter: blur(0); }
+
+
+/* ============ Bristol: the seven types ============ */
+
+/* the long gradient */
+.bristol { background: var(--bristol-gradient); }
+
+/* ---- One article ---- */
 .type {
   /* per-article colours: overridden by the modifier classes below */
   --type-heading: var(--white);
-  --pill-bg:      rgb(251 237 224 / 0.7);   /* a see-through version of --white, so it picks up the gradient */
-  --pill-text:    var(--black);
-  --pill-border:  rgb(41 26 6 / 0.3);
+  --pill-bg:      rgb(251 237 224 / 0.5);   /* see-through --white, so it picks up the gradient */
+  --pill-text:    var(--redbrown);
+  --pill-border:  var(--brown);
 
   position: relative;                       /* the GIF positions against this */
   min-height: 100vh;
@@ -764,79 +725,30 @@ video {
   position: relative;
   z-index: 2;
   padding: 0.75rem 1.5rem;
-  border: 1px solid var(--pill-border);
-  border-radius: 1.75rem;
+  border-radius: 50px;
+  border: 2px solid var(--pill-border);
   background: var(--pill-bg);
   color: var(--pill-text);
 }
-.type__note--left  { grid-column: 1 / 5;   grid-row: 3; align-self: end;   }
-.type__note--right { grid-column: 9 / 13;  grid-row: 4; align-self: start; justify-self: end; }
+.type__note--left  { grid-column: 3 / 6;  grid-row: 3; align-self: end; }
+.type__note--right { grid-column: 8 / 11; grid-row: 4; align-self: start; justify-self: end; }
 
-/* ============ CUSTOMISE: each article's colours ============ */
+/* ---- CUSTOMISE: each article's colours ---- */
 .type--pebbles { --type-heading: var(--white); }
 .type--lumpy   { --type-heading: var(--white); }
 .type--cracks  { --type-heading: var(--redbrown); }
 .type--snake   { --type-heading: var(--redbrown); }
 .type--blobs   { --type-heading: var(--green); }
 .type--mush    { --type-heading: var(--green); }
-.type--liquid  {--type-heading: var(--white);
-  /* dark pills on the dark red end, like your "did you know" ones */
+.type--liquid  {
+  --type-heading: var(--white);
+  /* dark pills on the dark red end, like the "did you know" ones */
   --pill-bg:     rgb(133 68 30 / 0.25);
   --pill-text:   var(--white);
   --pill-border: rgb(241 81 45 / 0.5);
 }
-.type-close {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-}
-.type-close h5 {
-  color: var(--white);
-}
 
-
-/* ============ Small screens ============*/
- 
-@media (max-aspect-ratio: 1/1) {
-  .hero__video {
-    width: 170%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .butt__text tspan { fill-opacity: 0; }
-}
-
-@media (max-width: 768px) {
-    .stoolrich { --content-w: 88vw; --swirl-reach: 30vw;}
-  .stoolrich__swirl { opacity: 0.4; }   /* faint, so they don't fight the text */
-}
-
-@media screen and (max-width: 500px) {
-  
-.stool-definition {
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto;
-}
-
-.stool-defn-1 {
-  grid-column: 1/3;
-  grid-row: 1/2;
-}
-.stool-defn-2{
-  grid-row: 2/3;
-  grid-column: 1/-1;
-}
-
-}
-
-
-
-
-
-/* ============ Mobile: everything stacks ============ */
+/* ---- Mobile: everything stacks ---- */
 @media (max-width: 768px) {
   .type {
     display: flex;
@@ -849,7 +761,8 @@ video {
   .type__gif {
     position: static;
     translate: none;
-    height: 40svh;
+    height: auto;
+    width: 50%;
     margin-block: -1.5rem;    /* still overlaps the big text a little */
   }
   .type__note { width: min(100%, 22rem); }
@@ -858,11 +771,214 @@ video {
 }
 
 
+/* =========================================================
+   6. NOT IN THE HTML YET
+   Kept for sections you haven't built/added back yet.
+   ========================================================= */
+
+/* ---- Butt again (old version) ---- */
+.buttagain { height: fit-content; }
+
+.butt-again {
+  background: var(--peachy);
+  color: var(--redbrown);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---- Seven types title (old version) ---- */
+.next-seventypes {
+  background: var(--halloweenpoop);
+  color: var(--white);
+}
+.next-seventypes .h1__accent { color: var(--green); }
+
+/* ---- Bristol chart (shares the base rule with .real-poop above) ---- */
+.bsc-chart img { background: var(--white); }
+
+.bsc-chart h4 {
+  background: var(--redbrowngradient-solid);
+  padding: clamp(12px, 1.5vw, 26px) clamp(16px, 4vw, 70px);
+  border-radius: 300px;
+  color: var(--green);
+  text-align: center;
+}
+
+.bsc-chart-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* ---- Closing line after the types ---- */
+.type-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.type-close h5 { color: var(--white); }
+
+/* ---- "Normal shit" flip cards ---- */
+.normal-shit {
+  background: var(--peachy);
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20rem;
+  position: absolute;          /* NOTE: check this — it takes the section out of the page flow */
+}
+
+.normal-cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+  /* perspective: 500px; */    /* the flip needs this on the parent to look 3D */
+}
+
+.normal-brown-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  width: 506.456px;
+  height: 497.257px;
+  padding: 44px 31px 41px 27px;
+  border-radius: 32px;
+  background: linear-gradient(180deg, var(--brown) 0%, var(--redbrown) 100%);
+  color: var(--green);
+  box-shadow: 1px 2px 23.5px 0 rgba(0, 0, 0, 0.20);
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.normal-cards:hover .normal-brown-cards {
+  transform: rotateY(180deg);
+  transition: transform 0.5s;
+}
+
+.brown-cards-front,
+.brown-cards-back {
+  position: absolute;
+  backface-visibility: hidden;
+}
+.brown-cards-back {
+  background-color: var(--white);
+  transform: rotateY(180deg);
+}
+
+/* ---- Shart chart ---- */
+.shart-chart {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+.desc-1 { grid-column: 3 / 5;   grid-row: 1 / 2; }
+.desc-2 { grid-column: 5 / -1;  grid-row: 2 / 3; }
+.desc-3 { grid-column: 1 / -4;  grid-row: 3 / 4; }
+.desc-4 { grid-column: -6 / -1; grid-row: 4 / 5; }
+
+@media (max-width: 768px) {
+  .shart-chart {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+  }
+  .desc-1, .desc-2, .desc-3, .desc-4 {
+    grid-column: 1 / 1;
+    grid-row: inherit;
+  }
+}
+
+/* FOOTER */
+
+.site-footer {
+  width: 100%;
+  background: var(--peachyreverse);
+  padding: clamp(40px, 6vw, 100px) 4% clamp(40px, 5vw, 80px);
+  height: 100vh; 
+}
+
+.footer-inner {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* ---- Logo ---- */
+.footer-logo {
+  display: flex;
+  justify-content: center;
+}
+.footer-logo img {
+  width: min(100%, 1500px); 
+  height: auto;
+}
 
 
+.footer-cta {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: clamp(16px, 2vw, 32px);
+  margin-bottom: clamp(40px, 5vw, 80px);
+  padding-right: 6%;
+}
+
+.share-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;                  /* em = scales with the text */
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: clamp(20px, 3vw, 48px);
+  cursor: pointer;
+}
 
 
+.footer-bottom {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  flex-direction: row;
+  gap: clamp(32px, 8vw, 120px);
+  color: var(--white);
+}
 
 
+.footer-bottom h5 {
+  margin: 0 0 0.8em;
+}
 
+.footer-disclaimer p {
+  max-width: 650px;
+}
 
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.footer-bottom h5 {
+font-size: clamp(12px, 0.95vw, 15px);
+font-weight: 500;
+}
+.footer-links a {
+  color: inherit; 
+  text-decoration: none;
+  font-family: "Clash Display", sans-serif;
+  font-weight: 600;
+  font-size: clamp(12px, 0.95vw, 15px);
+  text-transform: uppercase;
+  transition: opacity 0.2s ease;
+}
+.footer-links a:hover,
+.footer-links a:focus-visible { color: var(--white);}
