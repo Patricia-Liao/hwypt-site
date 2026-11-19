@@ -1,4 +1,3 @@
-
 :root {
   --redbrown:   #7F0A01;
   --brown:      #85441E;
@@ -14,7 +13,7 @@
   /* gradients */
   --halloweenpoop: linear-gradient(180deg, var(--autumn) 0%, var(--black) 100%);
   --peachy: linear-gradient(180deg, var(--orange) 0%, var(--white) 65%, rgba(251, 237, 224, 0) 100%);
-  --peachyreverse: linear-gradient(180deg, rgba(251, 237, 224, 0) 0%, var(--orange)100%); 
+  --peachyreverse: linear-gradient(180deg, rgba(251, 237, 224, 0) 0%, var(--orange) 100%);
 
   --redbrowngradient:       linear-gradient(180deg, var(--redbrown) 0%, var(--brown) 45%, rgba(133, 68, 30, 0) 85%);
   --redbrowngradient-solid: linear-gradient(180deg, var(--redbrown) 0%, var(--brown) 100%);
@@ -38,6 +37,7 @@
   );
 
   --pad: clamp(1rem, 3vw, 2.5rem);
+  --nav-h: clamp(4rem, 8vw, 7rem);   /* roughly the fixed nav's height. CUSTOMISE if the logo overlaps */
 }
 
 
@@ -75,6 +75,9 @@ body {
 }
 
 img, video { display: block; max-width: 100%; }
+
+/* links like #bristol-stool-chart stop below the fixed nav, not hidden underneath it */
+[id] { scroll-margin-top: var(--nav-h); }
 
 
 /* ============ 4. Typography ============ */
@@ -155,6 +158,7 @@ p, .p1, .p2 {
   display: grid;
   grid-template-rows: auto 1fr auto;
   overflow: hidden;
+  padding-top: var(--nav-h);       /* space for the fixed nav */
   color: var(--white);
   background: var(--redbrowngradient);
 }
@@ -177,35 +181,112 @@ p, .p1, .p2 {
   opacity: 0;
   visibility: hidden;
 }
-
-.hero__nav,
-.hero__center,
-.hero__bottom { position: relative; z-index: 1; }
-
-/* ---- Nav ---- */
+/* ---- Nav (fixed: stays at the top while you scroll) ---- */
 .hero__nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;                    /* above every section, including the pinned ones */
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   padding: var(--pad);
+  transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
 }
 
+
+
+/* small logo, top left */
+.hero__brand img {
+  width: clamp(70px, 9vw, 130px);  /* CUSTOMISE: logo size */
+  height: auto;
+}
+
+/* hamburger: three thin lines */
 .hero__menu {
-  display: grid;
-  gap: 0.2rem;
-  width: 2.75rem;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  width: clamp(1.75rem, 2.5vw, 2.5rem);
+  padding: 0.5rem 0;               /* bigger click area without changing the look */
   background: none;
   border: 0;
   cursor: pointer;
 }
 .hero__menu span {
   display: block;
-  height: 1.1rem;
-  background: #efe6d8;
-  border-radius: 0.15rem;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
 }
-.hero__menu span:last-child { width: 80%; height: 0.7rem; justify-self: center; }
+
+/* ---- Dropdown ---- */
+.hero__dropdown {
+  position: absolute;
+  top: 0;                          /* touches the top of the screen, like the design */
+  right: var(--pad);
+  width: min(22rem, calc(100vw - 2 * var(--pad)));   /* never wider than the screen on phones */
+  padding: clamp(1rem, 2vw, 1.5rem) clamp(1rem, 2vw, 1.5rem) clamp(1.5rem, 3vw, 2.5rem);
+  background-color: var(--white);
+  background-image: url("assets/menu-texture.png");  /* CUSTOMISE: your texture file */
+  background-repeat: repeat;
+  box-shadow: 1px 2px 23.5px 0 rgba(0, 0, 0, 0.20);
+  color: var(--redbrown);
+
+  /* closed state */
+  opacity: 0;
+  translate: 0 -1rem;
+  visibility: hidden;              /* also stops the hidden links being tabbable */
+  transition: opacity 0.25s ease, translate 0.25s ease, visibility 0s 0.25s;
+}
+
+/* open state (nav.js adds this class) */
+.hero__dropdown.is-open {
+  opacity: 1;
+  translate: 0 0;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+/* circled X, top right of the panel */
+.hero__close {
+  display: block;
+  margin-left: auto;
+  width: clamp(1.75rem, 2.5vw, 2.25rem);
+  padding: 0;
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+}
+.hero__close svg { display: block; width: 100%; height: auto; }
+
+/* the links */
+.hero__links {
+  list-style: none;
+  margin: 1rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.hero__links a {
+  color: inherit;
+  text-decoration: none;
+  font-family: "Clash Display", sans-serif;
+  font-weight: 600;
+  font-size: clamp(16px, 1.4vw, 22px);
+  text-transform: uppercase;
+  transition: opacity 0.2s ease;
+}
+.hero__links a:hover,
+.hero__links a:focus-visible { opacity: 0.6; }
+
+
+
+.hero__center,
+.hero__bottom { position: relative; z-index: 1; }
 
 /* ---- Centre ---- */
 .hero__center {
@@ -242,7 +323,7 @@ p, .p1, .p2 {
 
 
 /* ============ Video ============ */
-.video-section { background: #beb8b8; }
+/* .video-section { background: #beb8b8; } */
 
 video {
   width: 100%;
@@ -250,6 +331,29 @@ video {
   object-fit: cover; /* fills the screen like a background */
 }
 
+.video-section { position: relative; }       /* the text positions against this */
+
+/* sits on top of the video, filling the same area */
+.video-section__text {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(3rem, 12vh, 8rem);              /* CUSTOMISE: space between the lines */
+  padding: var(--pad);
+  text-align: center;
+  color: var(--white);
+  pointer-events: none;                       /* clicks go through to the page */
+}
+
+.video-section__line {
+  margin: 0;
+  max-width: 30em;
+  text-shadow: 0 1px 8px rgb(41 26 6 / 0.5);  /* keeps it readable over light frames */
+}
 
 /* ============ Awkward / Weird ============ */
 .awkward-weird {
@@ -632,12 +736,14 @@ video {
 /* ============ Real poop photos ============ */
 .real-poop,
 .bsc-chart {
-  height: 100vh;
+  min-height: 100vh;           /* grows if the content is taller than the screen */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  gap: 2rem;
+  padding: var(--pad);
+  text-align: center;
   position: relative;
   color: var(--white);
   background: var(--black);
@@ -711,14 +817,17 @@ video {
 /* ---- The GIF: centred, in front of the big text, overlapping its bottom ---- */
 .type__gif {
   position: absolute;
-  left: 50%;
-  top: 56%;
-  translate: -50% -50%;
-  height: 46%;               /* CUSTOMISE: GIF size */
-  width: auto;               /* keeps the shape */
+  top: 6%;
+  bottom: -6%;  
+  left: 0; 
+  right: 0;
+  margin: auto;
+  height: 92%; 
+  width: auto;           
   z-index: 2;
   pointer-events: none;
 }
+
 
 /* ---- The two notes: left one higher, right one lower ---- */
 .type__note {
@@ -760,10 +869,9 @@ video {
   }
   .type__gif {
     position: static;
-    translate: none;
     height: auto;
-    width: 50%;
-    margin-block: -1.5rem;    /* still overlaps the big text a little */
+    width: 100%;              /* was 50% */
+    margin-block: -1.5rem;
   }
   .type__note { width: min(100%, 22rem); }
   .type__note--left  { align-self: flex-start; }
@@ -772,8 +880,7 @@ video {
 
 
 /* =========================================================
-   6. NOT IN THE HTML YET
-   Kept for sections you haven't built/added back yet.
+   6. REST OF THE BRISTOL PAGE
    ========================================================= */
 
 /* ---- Butt again (old version) ---- */
@@ -824,64 +931,103 @@ video {
 /* ---- "Normal shit" flip cards ---- */
 .normal-shit {
   background: var(--peachy);
-  height: 100vh;
+  min-height: 100vh;
+  padding: var(--pad);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20rem;
-  position: absolute;          /* NOTE: check this — it takes the section out of the page flow */
+  gap: 20rem;                  /* CUSTOMISE: that's 320px between each block */
 }
-
+/* ---- The row of cards ---- */
 .normal-cards {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;               /* stack on narrow screens */
   justify-content: center;
-  gap: 2rem;
-  /* perspective: 500px; */    /* the flip needs this on the parent to look 3D */
+  gap: 1.5rem;
+  margin-top: 4rem;
 }
 
+/* ---- One card: the thing that flips ---- */
 .normal-brown-cards {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  width: 506.456px;
-  height: 497.257px;
-  padding: 44px 31px 41px 27px;
-  border-radius: 32px;
-  background: linear-gradient(180deg, var(--brown) 0%, var(--redbrown) 100%);
-  color: var(--green);
-  box-shadow: 1px 2px 23.5px 0 rgba(0, 0, 0, 0.20);
-  transition: transform 1s;
-  transform-style: preserve-3d;
+  position: relative;            /* the two faces stack on top of each other inside it */
+  flex: 1 1 280px;               /* grow to fill the row, wrap below ~280px each */
+  max-width: 506px;
+  aspect-ratio: 506 / 497;       /* your Figma size, kept as a shape instead of fixed px */
+
+  transform-style: preserve-3d;  /* keeps the faces in 3D while the card turns */
+  transform: perspective(1200px) rotateY(0deg);
+  transition: transform 0.6s ease;
+  cursor: pointer;
 }
 
-.normal-cards:hover .normal-brown-cards {
-  transform: rotateY(180deg);
-  transition: transform 0.5s;
+/* flip on hover, or when tabbed to with the keyboard */
+.normal-brown-cards:hover,
+.normal-brown-cards:focus-visible {
+  transform: perspective(1200px) rotateY(180deg);
 }
 
+/* ---- Both faces ---- */
 .brown-cards-front,
 .brown-cards-back {
   position: absolute;
-  backface-visibility: hidden;
+  inset: 0;                      /* fill the whole card */
+  margin: 0;
+  padding: 2rem;
+  border-radius: 32px;
+  box-shadow: 1px 2px 23.5px 0 rgba(0, 0, 0, 0.20);
+  backface-visibility: hidden;   /* hides each face when it's turned away */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
 }
+
+/* ---- Front: brown with green text ---- */
+.brown-cards-front {
+  background: linear-gradient(180deg, var(--brown) 0%, var(--redbrown) 100%);
+  color: var(--green);
+  font-size: clamp(28px, 3.7vw, 64px);   /* smaller than the global h4 so it fits the card */
+}
+
+/* ---- Back: cream, already turned around so it faces forward after the flip ---- */
 .brown-cards-back {
-  background-color: var(--white);
+  background: var(--white);
+  color: var(--black);
   transform: rotateY(180deg);
 }
+.brown-cards-back p    { max-width: 20em; }
+.brown-cards-back span { color: var(--orange); font-weight: 700; }
 
 /* ---- Shart chart ---- */
 .shart-chart {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(4, 1fr);
+  gap: 20px;
+}
+.desc-3, .desc-4 {
+  background: var(--halloweenpoop);
+  padding: clamp(1.5rem, 5vw, 6rem);   /* --panel-padding only exists inside .hscroll, so it's written out here */
+  border-radius: 600px;
+  color: var(--green);
 }
 .desc-1 { grid-column: 3 / 5;   grid-row: 1 / 2; }
 .desc-2 { grid-column: 5 / -1;  grid-row: 2 / 3; }
 .desc-3 { grid-column: 1 / -4;  grid-row: 3 / 4; }
 .desc-4 { grid-column: -6 / -1; grid-row: 4 / 5; }
+
+
+.filler{
+  height: 70vh;
+  text-align: center;
+}
+.filler h1 {
+  color: var(--orange);
+  padding-top: 20%;
+}
 
 @media (max-width: 768px) {
   .shart-chart {
@@ -894,13 +1040,15 @@ video {
   }
 }
 
-/* FOOTER */
-
+/* =========================================================
+   7. FOOTER
+   ========================================================= */
 .site-footer {
   width: 100%;
+  min-height: 100vh;           /* min, not fixed: on phones the content is taller than the screen */
   background: var(--peachyreverse);
   padding: clamp(40px, 6vw, 100px) 4% clamp(40px, 5vw, 80px);
-  height: 100vh; 
+  color: var(--white);
 }
 
 .footer-inner {
@@ -915,11 +1063,11 @@ video {
   justify-content: center;
 }
 .footer-logo img {
-  width: min(100%, 1500px); 
+  width: min(100%, 1500px);
   height: auto;
 }
 
-
+/* ---- Ask a friend ---- */
 .footer-cta {
   display: flex;
   justify-content: flex-end;
@@ -928,6 +1076,7 @@ video {
   padding-right: 6%;
 }
 
+/* buttons don't inherit fonts by default, so the h4 look is set here */
 .share-button {
   display: flex;
   align-items: center;
@@ -936,27 +1085,36 @@ video {
   background: none;
   border: none;
   color: var(--white);
-  font-size: clamp(20px, 3vw, 48px);
+  font-family: "Clash Display", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: clamp(24px, 5.56vw, 96px);
+  line-height: 1;
   cursor: pointer;
 }
 
 
+/* ---- Disclaimer + quick links ---- */
 .footer-bottom {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: space-between;
-  flex-direction: row;
-  gap: clamp(32px, 8vw, 120px);
-  color: var(--white);
+  align-items: flex-start;
+  gap: 32px clamp(32px, 8vw, 120px);
 }
 
+.footer-disclaimer { flex: 1 1 22rem; }
+.footer-links      { flex: 0 1 14rem; }
 
 .footer-bottom h5 {
   margin: 0 0 0.8em;
+  font-size: clamp(12px, 0.95vw, 15px);
+  font-weight: 500;
 }
 
 .footer-disclaimer p {
   max-width: 650px;
+  margin: 0;
 }
 
 .footer-links ul {
@@ -967,12 +1125,9 @@ video {
   flex-direction: column;
   gap: 1rem;
 }
-.footer-bottom h5 {
-font-size: clamp(12px, 0.95vw, 15px);
-font-weight: 500;
-}
+
 .footer-links a {
-  color: inherit; 
+  color: inherit;
   text-decoration: none;
   font-family: "Clash Display", sans-serif;
   font-weight: 600;
@@ -981,4 +1136,4 @@ font-weight: 500;
   transition: opacity 0.2s ease;
 }
 .footer-links a:hover,
-.footer-links a:focus-visible { color: var(--white);}
+.footer-links a:focus-visible { color: var(--redbrown);}

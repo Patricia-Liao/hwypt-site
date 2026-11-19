@@ -17,10 +17,11 @@
   <!-- Scripts: "defer" runs them in this order once the HTML has loaded -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="nav.js" defer></script>
   <script src="video.js" defer></script>
   <script src="script.js" defer></script>
   <script src="hscroll.js" defer></script>
-</head>
+</head> 
 
 <body>
 <main>
@@ -28,13 +29,37 @@
   <!-- ============ HERO ============ -->
   <section class="hero">
 
-    <!-- Top bar -->
-    <header class="hero__nav">
-      <button class="hero__menu" type="button" aria-label="Open menu">
-        <span></span>
-        <span></span>
-      </button>
-    </header>
+<!-- Top bar -->
+<header class="hero__nav">
+
+  <a class="hero__brand" href="index.html" aria-label="HWYPT home">
+    <img src="assets/Asset 10.svg" alt="">
+  </a>
+
+  <button class="hero__menu" type="button" aria-label="Open menu"
+          aria-expanded="false" aria-controls="hero-dropdown">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- the dropdown panel -->
+  <nav class="hero__dropdown" id="hero-dropdown" aria-label="Main menu">
+    <button class="hero__close" type="button" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="11"/>
+        <path d="M8 8l8 8M16 8l-8 8"/>
+      </svg>
+    </button>
+
+    <ul class="hero__links">
+      <li><a href="#bristol-stool-chart">BRISTOL STOOL CHART</a></li>
+      <li><a href="bowel-health-matters.html">BOWEL HEALTH MATTERS</a></li>
+      <li><a href="#">OTHER SOURCES</a></li>
+    </ul>
+  </nav>
+
+</header>
 
     <!-- still: sits underneath, hidden at first -->
     <img class="hero__video hero__still" src="assets/swirly-poop-freeze.png" alt="" aria-hidden="true">
@@ -54,13 +79,16 @@
   </section>
 
 
-  <!-- ============ VIDEO ============ -->
-  <section class="video-section">
-    <video id="video" src="assets/snake-poop-waydownhadestown-2-test.mp4" muted playsinline preload="auto"></video>
-    <!-- <div class="hero-intro">
-      <p class="p1">don't look at me like that. you clicked on a website about shit.</p>
-    </div> -->
-  </section>
+<!-- ============ VIDEO ============ -->
+<section class="video-section">
+  <video id="video" src="assets/snake-poop-waydownhadestown-2-test.mp4" muted playsinline preload="auto"></video>
+
+  <div class="video-section__text">
+    <p class="p1 video-section__line">don't look at me like that. you clicked on a website about shit.</p>
+    <p class="p1 video-section__line">so, how are we doing? thriving? surviving? fighting for our lives in there?</p>
+    <p class="p1 video-section__line">seriously though! tell me about it! :D</p>
+  </div>
+</section>
 
 
   <!-- ============ AWKWARD / WEIRD ============ -->
@@ -153,8 +181,10 @@
   </section>
 
 
+
+
   <!-- ============ HORIZONTAL SCROLL ============ -->
-  <section class="hscroll" aria-label="The Bristol Stool Chart">
+  <section class="hscroll" id="bristol-stool-chart" aria-label="The Bristol Stool Chart">
     <div class="hscroll__track">
 
       <!-- PANEL 1: title card -->
@@ -172,12 +202,14 @@
 
       <!-- PANEL 2: the long one with the big title -->
       <article class="hscroll__panel hscroll__panel--intro">
-        <div class="intro-container">
-          <h5>more formally known as</h5>
-          <h3>THE BRISTOL STOOL CHART</h3>
-          <div class="hscroll__about">
-            <p class="p1">It's a visual dictionary for poop. Seven types, sorted by shape and texture, from hard little pebbles to pure liquid.</p>
-            <p class="p1">It was created so you don't have to describe it. You just point at a number.</p>
+        <div class="bigger-container">
+          <div class="intro-container">
+            <h5>more formally known as</h5>
+            <h3>THE BRISTOL STOOL CHART</h3>
+            <div class="hscroll__about">
+              <p class="p1">It's a visual dictionary for poop. Seven types, sorted by shape and texture, from hard little pebbles to pure liquid.</p>
+              <p class="p1">It was created so you don't have to describe it. You just point at a number.</p>
+            </div>
           </div>
         </div>
       </article>
@@ -187,25 +219,41 @@
 
 
   <!-- ============ REAL POOP PHOTOS ============ -->
-  <section class="next-test">
-    <h5>someone had to look at all of these</h5>
-    <p class="p2">(you don't have to... I bet you will)</p>
+  <section class="real-poop">
+    <h4>someone had to look at all of these</h4>
+    <p class="p2">(you don’t have to... I bet you will)</p>
 
-    <div class="real-poop">
-      <div class="imgs-container">
-        <!-- tabindex lets keyboard users focus a pill to un-blur it -->
-        <div class="poop-img-container" tabindex="0"><img src="assets/real-poop/type-1.webp" alt=""></div>
-        <div class="poop-img-container" tabindex="0"><img src="assets/real-poop/type-2.webp" alt=""></div>
-        <div class="poop-img-container" tabindex="0"><img src="assets/real-poop/type-3.webp" alt=""></div>
-        <div class="poop-img-container" tabindex="0"><img src="assets/real-poop/type-4.webp" alt=""></div>
-        <div class="poop-img-container" tabindex="0"><img src="assets/real-poop/type-5.webp" alt=""></div>
-        <div class="poop-img-container" tabindex="0"><img src="assets/real-poop/type-6.webp" alt=""></div>
-        <div class="poop-img-container" tabindex="0"><img src="assets/real-poop/type-7.webp" alt=""></div>
-      </div>
+    <div class="imgs-container">
+      <!-- tabindex lets keyboard users focus a pill to un-blur it -->
+      <div class="poop-img-container" tabindex="0"><img src="assets/real-poop/type-1.webp" alt=""></div>
+      <div class="poop-img-container" tabindex="0"><img src="assets/real-poop/type-2.webp" alt=""></div>
+      <div class="poop-img-container" tabindex="0"><img src="assets/real-poop/type-3.webp" alt=""></div>
+      <div class="poop-img-container" tabindex="0"><img src="assets/real-poop/type-4.webp" alt=""></div>
+      <div class="poop-img-container" tabindex="0"><img src="assets/real-poop/type-5.webp" alt=""></div>
+      <div class="poop-img-container" tabindex="0"><img src="assets/real-poop/type-6.webp" alt=""></div>
+      <div class="poop-img-container" tabindex="0"><img src="assets/real-poop/type-7.webp" alt=""></div>
     </div>
 
-    <p class="p2">(seriously, just keep scrolling! we've got a cooler one :D)</p>
-    <h5>to make. . .</h5>
+    <p class="p2">(seriously, just keep scrolling! we’ve got a cooler one :D)</p>
+    <h4>to make. . .</h4>
+  </section>
+
+
+  <!-- ============ CHART OVERVIEW ============ -->
+  <section class="bsc-chart">
+    <div class="bsc-chart-container">
+      <h4>The Bristol Stool Chart</h4>
+      <div class="imgs-container">
+        <div class="poop-img-container"><img src="assets/poop-gifs/type-1.gif" alt=""></div>
+        <div class="poop-img-container"><img src="assets/poop-gifs/type-2.gif" alt=""></div>
+        <div class="poop-img-container"><img src="assets/poop-gifs/type-3.gif" alt=""></div>
+        <div class="poop-img-container"><img src="assets/poop-gifs/type-4.gif" alt=""></div>
+        <div class="poop-img-container"><img src="assets/poop-gifs/type-5.gif" alt=""></div>
+        <div class="poop-img-container"><img src="assets/poop-gifs/type-6.gif" alt=""></div>
+        <div class="poop-img-container"><img src="assets/poop-gifs/type-7.gif" alt=""></div>
+      </div>
+    </div>
+    <p class="p1">allow us to take you through each of them</p>
   </section>
 
 
@@ -223,7 +271,7 @@
     <article class="type type--lumpy">
       <h5 class="type__label">TYPE 2</h5>
       <h1 class="h1__accent type__title">LUMPY</h1>
-      <img class="type__gif" src="assets/type2-lumpy.gif" alt="">
+      <img class="type__gif" src="assets/poop-gifs/type-2.gif" alt="">
       <div class="p1 type__note type__note--left">A sausage shape, but with lumps. Also commonly associated with constipation.</div>
       <div class="p1 type__note type__note--right">usually experienced among procrapstinators - putting it off until things get hard.</div>
     </article>
@@ -231,15 +279,14 @@
     <article class="type type--cracks">
       <h5 class="type__label">TYPE 3</h5>
       <h1 class="h1__accent type__title">CRACKS</h1>
-      <img class="type__gif" src="assets/type3-cracks.gif" alt="">
+      <img class="type__gif" src="assets/poop-gifs/type-3.gif" alt="">
       <div class="p1 type__note type__note--left">A formed sausage with cracks along the surface. Generally within the healthy range.</div>
-      <div class="p1 type__note type__note--right">usually experienced among procrapstinators - putting it off until things get hard.</div>
     </article>
 
     <article class="type type--snake">
       <h5 class="type__label">TYPE 4</h5>
       <h1 class="h1__accent type__title">SNAKE</h1>
-      <img class="type__gif" src="assets/type4-snake.gif" alt="">
+      <img class="type__gif" src="assets/poop-gifs/type-4.gif" alt="">
       <div class="p1 type__note type__note--left">Smooth, soft, and sausage- or snake-shaped.</div>
       <div class="p1 type__note type__note--right">This is generally considered an ideal stool type</div>
     </article>
@@ -247,7 +294,7 @@
     <article class="type type--blobs">
       <h5 class="type__label">TYPE 5</h5>
       <h1 class="h1__accent type__title">BLOBS</h1>
-      <img class="type__gif" src="assets/type5-blobs.gif" alt="">
+      <img class="type__gif" src="assets/poop-gifs/type-5.gif" alt="">
       <div class="p1 type__note type__note--left">Soft blobs with clear-cut edges. These can pass easily, but may indicate a change in bowel transit</div>
       <div class="p1 type__note type__note--right">placeholder text blablabla</div>
     </article>
@@ -255,7 +302,7 @@
     <article class="type type--mush">
       <h5 class="type__label">TYPE 6</h5>
       <h1 class="h1__accent type__title">MUSH</h1>
-      <img class="type__gif" src="assets/type6-mush.gif" alt="">
+      <img class="type__gif" src="assets/poop-gifs/type-6.gif" alt="">
       <div class="p1 type__note type__note--left">Fluffy pieces with ragged edges and a mushy consistency. Often associated with diarrhoea.</div>
       <div class="p1 type__note type__note--right">mushmushmush</div>
     </article>
@@ -263,31 +310,83 @@
     <article class="type type--liquid">
       <h5 class="type__label">TYPE 7</h5>
       <h1 class="h1__accent type__title">LIQUID</h1>
-      <img class="type__gif" src="assets/type7-liquid.gif" alt="">
+      <img class="type__gif" src="assets/poop-gifs/type-7.gif" alt="">
       <div class="p1 type__note type__note--left">No solid pieces, just liquid. This is diarrhoea.</div>
-      <div class="p1 type__note type__note--right">soupy poopy</div>
-      <div class="p1 type__note type__note--right">can be mistaken for a fart</div>
+      <div class="p1 type__note type__note--right">
+        <div>soupy poopy</div>
+        <div>can be mistaken for a fart</div>
+      </div>
+    </article>
+
+    <article class="type type-close">
+      <h5>wasn’t that delicious?</h5>
     </article>
 
   </section>
-  
-  <footer class="site-footer">
+
+
+  <!-- ============ IS MY SHIT NORMAL? ============ -->
+ <section class="normal-shit">
+  <blockquote class="quote-clash">so it’s normal to shit,<br>but is my shit normal?</blockquote>
+
+  <div>
+    <p class="p1">Normal isn’t one thing. It’s a range, and everyone’s sits somewhere different. Here’s what the usual range looks like.</p>
+
+    <div class="normal-cards">
+
+      <div class="normal-brown-cards" tabindex="0">
+        <h4 class="brown-cards-front">FIRM & FLACCID</h4>
+        <div class="brown-cards-back">
+          <h5>CONSISTENCY</h5>
+          <p class="p2"><span>Types 3 and 4 are usually ideal:</span> formed, soft, and easy to pass. But all seven can be experienced at some point.</p>
+        </div>
+      </div> 
+
+      <div class="normal-brown-cards" tabindex="0">
+        <h4 class="brown-cards-front">FIFTY SHADES OF BROWN</h4>
+        <div class="brown-cards-back">
+          <h5>COLOUR</h5>
+          <p class="p2">(Not literally 50 lol) <span>From tan to espresso, brown is the usual. </span>Other colours? Often food-related, but some are worth keeping an eye on.</p>
+        </div>
+      </div>
+
+      <div class="normal-brown-cards" tabindex="0">
+        <h4 class="brown-cards-front">THREE TIMES, THREE TIMES!</h4>
+        <div class="brown-cards-back">
+          <h5>FREQUENCY</h5>
+          <p class="p2">What stamina! But you do you. Anywhere from <span>3 times a day to 3 times a week</span> can be normal. What matters is what's usual for you.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="shart-chart">
+    <p class="p2 desc-1">Your usual is your usual. What counts is noticing when it changes.</p>
+    <p class="p2 desc-2">But remember: one poop doesn't tell the whole story. Your usual pattern, symptoms, and changes over time matter too.</p>
+    <p class="advercase desc-3">The shart chart is a guide</p>
+    <p class="advercase desc-4">not a diagnosis</p>
+  </div>
+</section>
+
+<section class="filler">
+  <h1 class="h1__accent">Sooooo</h1>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
   <div class="footer-inner">
 
-    <!-- Logo -->
     <div class="footer-logo">
-      <img
-        src="/assets/logo-animation-gif.gif"
-        alt="Website logo"
-      />
+      <img src="assets/logo-animation-gif.gif" alt="HWYPT">
     </div>
 
-    <!-- Share CTA -->
     <div class="footer-cta">
-      <button class="share-button" id="shareButton">
-        <h4>ASK A FRIEND!</h4>
-
-        <span class="share-icon">
+      <button class="share-button" id="shareButton" type="button">
+        <span>ASK A FRIEND!</span>
+        <span class="share-icon" aria-hidden="true">
           <img src="assets/arrow-white.svg" alt="">
         </span>
       </button>
@@ -304,15 +403,14 @@
         <h5>QUICK LINKS</h5>
         <ul>
           <li><a href="#bristol-stool-chart">BRISTOL STOOL CHART</a></li>
-          <li><a href="bowel-health-matters">BOWEL HEALTH MATTERS</a></li>
+          <li><a href="bowel-health-matters.html">BOWEL HEALTH MATTERS</a></li>
           <li><a href="#">OTHER SOURCES</a></li>
         </ul>
       </nav>
 
     </div>
   </div>
+</footer>
 
-
-</main>
 </body>
 </html>

@@ -5,206 +5,228 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>HWYPT-BristolStoolChart</title>
 
-    <link rel="stylesheet" href="style.css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&display=swap" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Teachers:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
 
-
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
-
-
+  <!-- Scripts: "defer" runs them in this order once the HTML has loaded.
+       hscroll.js must come before types.js (the pin has to exist first) -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="hscroll.js" defer></script>
+  <script src="types.js" defer></script>
 </head>
 
 <body>
+<main>
 
-<section class="hscroll" aria-label="The Bristol Stool Chart">
-  <div class="hscroll__track">
+  <!-- ============ HORIZONTAL SCROLL ============ -->
+  <section class="hscroll" id="bristol-stool-chart" aria-label="The Bristol Stool Chart">
+    <div class="hscroll__track">
 
-    <!-- PANEL 1: title card -->
-    <article class="hscroll__panel hscroll__panel--title">
-  <h1 class="hscroll__seven">7</h1>
-  <div class="hscroll__lines">
-    <h1>TYPES</h1>
-    <div class="of-shit">
-      <h1>OF&nbsp;</h1>
-      <h1 class="h1__accent">SHIT</h1>
-      <img src="assets/arrow-icon.svg" alt="">
-    </div>
-  </div>
-</article>
-
-    <!-- PANEL 2: the long one with the big title -->
-    <article class="hscroll__panel hscroll__panel--intro">
-
-      <div class="bigger-container">
-        <div class="intro-container">
-          <h5>more formally known as</h5>
-          <h3>THE BRISTOL STOOL CHART</h3>
-          <div class="hscroll__about">
-          <p class="p1">It's a visual dictionary for poop. Seven types, sorted by shape and texture, from hard little pebbles to pure liquid.</p>
-          <p class="p1">It was created so you don't have to describe it. You just point at a number.</p>
+      <!-- PANEL 1: title card -->
+      <article class="hscroll__panel hscroll__panel--title">
+        <h1 class="hscroll__seven">7</h1>
+        <div class="hscroll__lines">
+          <h1>TYPES</h1>
+          <div class="of-shit">
+            <h1>OF&nbsp;</h1>
+            <h1 class="h1__accent">SHIT</h1>
+            <img src="assets/arrow-icon.svg" alt="">
           </div>
         </div>
-      </div>
-      <!-- <br><br><br> -->
+      </article>
 
-    </article>
+      <!-- PANEL 2: the long one with the big title -->
+      <article class="hscroll__panel hscroll__panel--intro">
+        <div class="bigger-container">
+          <div class="intro-container">
+            <h5>more formally known as</h5>
+            <h3>THE BRISTOL STOOL CHART</h3>
+            <div class="hscroll__about">
+              <p class="p1">It's a visual dictionary for poop. Seven types, sorted by shape and texture, from hard little pebbles to pure liquid.</p>
+              <p class="p1">It was created so you don't have to describe it. You just point at a number.</p>
+            </div>
+          </div>
+        </div>
+      </article>
 
-</section>
+    </div> <!-- /.hscroll__track -->
+  </section>
 
-<section class="real-poop">
+
+  <!-- ============ REAL POOP PHOTOS ============ -->
+  <section class="real-poop">
     <h4>someone had to look at all of these</h4>
     <p class="p2">(you don’t have to... I bet you will)</p>
 
     <div class="imgs-container">
-        <div class="poop-img-container"><img src="assets/real-poop/type-1.webp" alt=""></div>
-        <div class="poop-img-container"><img src="assets/real-poop/type-2.webp" alt=""></div>
-        <div class="poop-img-container"><img src="assets/real-poop/type-3.webp" alt=""></div>
-        <div class="poop-img-container"><img src="assets/real-poop/type-4.webp" alt=""></div>
-        <div class="poop-img-container"><img src="assets/real-poop/type-5.webp" alt=""></div>
-        <div class="poop-img-container"><img src="assets/real-poop/type-6.webp" alt=""></div>
-        <div class="poop-img-container"><img src="assets/real-poop/type-7.webp" alt=""></div>
-        
-      </div>
+      <!-- tabindex lets keyboard users focus a pill to un-blur it -->
+      <div class="poop-img-container" tabindex="0"><img src="assets/real-poop/type-1.webp" alt=""></div>
+      <div class="poop-img-container" tabindex="0"><img src="assets/real-poop/type-2.webp" alt=""></div>
+      <div class="poop-img-container" tabindex="0"><img src="assets/real-poop/type-3.webp" alt=""></div>
+      <div class="poop-img-container" tabindex="0"><img src="assets/real-poop/type-4.webp" alt=""></div>
+      <div class="poop-img-container" tabindex="0"><img src="assets/real-poop/type-5.webp" alt=""></div>
+      <div class="poop-img-container" tabindex="0"><img src="assets/real-poop/type-6.webp" alt=""></div>
+      <div class="poop-img-container" tabindex="0"><img src="assets/real-poop/type-7.webp" alt=""></div>
     </div>
-    <p class="p2">(seriously, just keep scrolling! we’ve got a cooler one :D) </p>
+
+    <p class="p2">(seriously, just keep scrolling! we’ve got a cooler one :D)</p>
     <h4>to make. . .</h4>
-</section>
+  </section>
 
-<section class="bsc-chart">
-  <div class="bsc-chart-container">
-    <h4>The Bristol Stool Chart</h4>
-    <div class="imgs-container">
-      <div class="poop-img-container"><img src="assets/poop-gifs/type-1.gif" alt=""></div>
-      <div class="poop-img-container"><img src="assets/poop-gifs/type-2.gif" alt=""></div>
-      <div class="poop-img-container"><img src="assets/poop-gifs/type-3.gif" alt=""></div>
-      <div class="poop-img-container"><img src="assets/poop-gifs/type-4.gif" alt=""></div>
-      <div class="poop-img-container"><img src="assets/poop-gifs/type-5.gif" alt=""></div>
-      <div class="poop-img-container"><img src="assets/poop-gifs/type-6.gif" alt=""></div>
-      <div class="poop-img-container"><img src="assets/poop-gifs/type-7.gif" alt=""></div>
-    </div>
-  </div>
-  <p class="p1">allow us to take you through each of them</p>
 
-</section>
-
-<section class="bristol" aria-label="The seven types of poop">
-
-  <article class="type type--pebbles">
-    <h5 class="type__label">TYPE 1</h5>
-    <h1 class="h1__accent type__title">PEBBLES</h1>
-    <img class="type__gif" src="assets/poop-gifs/type-1.gif" alt="">
-    <div class="p1 type__note type__note--left">Little hard nuggets, like nuts. Difficult to pass and commonly associated with constipation.</div>
-    <div class="p1 type__note type__note--right">Fighting for your life just for this to come out</div>
-  </article> 
-
-  <article class="type type--lumpy">
-    <h5 class="type__label">TYPE 2</h5>
-    <h1 class="h1__accent type__title">LUMPY</h1>
-    <img class="type__gif" src="assets/poop-gifs/type-2.gif" alt=""> 
-    <div class="p1 type__note type__note--left">A sausage shape, but with lumps. Also commonly associated with constipation.</div>
-    <div class="p1 type__note type__note--right">usually experienced among procrapstinators - putting it off until things get hard.</div>
-  </article>
-
-  <article class="type type--cracks">
-    <h5 class="type__label">TYPE 3</h5>
-    <h1 class="h1__accent type__title">CRACKS</h1>
-    <img class="type__gif" src="assets/poop-gifs/type-3.gif" alt="">
-    <div class="p1 type__note type__note--left">A formed sausage with cracks along the surface. Generally within the healthy range.</div>
-  </article>
-
-  <article class="type type--snake">
-    <h5 class="type__label">TYPE 4</h5>
-    <h1 class="h1__accent type__title">SNAKE</h1>
-    <img class="type__gif" src="assets/poop-gifs/type-4.gif" alt="">
-    <div class="p1 type__note type__note--left">Smooth, soft, and sausage- or snake-shaped.</div>
-    <div class="p1 type__note type__note--right">This is generally considered an ideal stool type</div>
-  </article>
-
-  <article class="type type--blobs">
-    <h5 class="type__label">TYPE 5</h5>
-    <h1 class="h1__accent type__title">BLOBS</h1>
-    <img class="type__gif" src="assets/poop-gifs/type-5.gif" alt="">
-    <div class="p1 type__note type__note--left">Soft blobs with clear-cut edges. These can pass easily, but may indicate a change in bowel transit</div>
-    <div class="p1 type__note type__note--right">placeholder text blablabla</div>
-  </article>
-
-  <article class="type type--mush">
-    <h5 class="type__label">TYPE 6</h5>
-    <h1 class="h1__accent type__title">MUSH</h1>
-    <img class="type__gif" src="assets/poop-gifs/type-6.gif" alt="">
-    <div class="p1 type__note type__note--left">Fluffy pieces with ragged edges and a mushy consistency. Often associated with diarrhoea.</div>
-    <div class="p1 type__note type__note--right">mushmushmush</div>
-  </article>
-
-  <article class="type type--liquid">
-    <h5 class="type__label">TYPE 7</h5>
-    <h1 class="h1__accent type__title">LIQUID</h1>
-    <img class="type__gif" src="assets/poop-gifs/type-7.gif" alt="">
-    <div class="p1 type__note type__note--left">No solid pieces, just liquid. This is diarrhoea.</div>
-    <div class="p1 type__note type__note--right">soupy poopy</div>
-    <div class="p1 type__note type__note--right">can be mistaken for a fart</div>
-  </article>
-
-  <article class="type type-close">
-    <h5>wasn’t that delicious?</h5>
-  </article>
-
-</section>
-
-<section class="normal-shit">
-  <blockquote class="quote-clash">so it’s normal to shit, 
-but is my shit normal?</blockquote>
-
-<div>
-  <p class="p1">Normal isn’t one thing. It’s a range, and everyone’s sits somewhere different. Here’s what the usual range looks like.</p>
-  <div class="normal-cards">
-    <div class="normal-brown-cards">
-      <h4 class="brown-cards-front">FIFTY SHADES OF BROWN</h4>
-      <div class="brown-cards-back">
-        <h5>FREQUENCY</h5>
-        <p class="p2">What stamina! But you do you. Anywhere from <span>3 times a day to 3 times a week</span> can be normal. What matters is what's usual for you.</p>
+  <!-- ============ CHART OVERVIEW ============ -->
+  <section class="bsc-chart">
+    <div class="bsc-chart-container">
+      <h4>The Bristol Stool Chart</h4>
+      <div class="imgs-container">
+        <div class="poop-img-container"><img src="assets/poop-gifs/type-1.gif" alt=""></div>
+        <div class="poop-img-container"><img src="assets/poop-gifs/type-2.gif" alt=""></div>
+        <div class="poop-img-container"><img src="assets/poop-gifs/type-3.gif" alt=""></div>
+        <div class="poop-img-container"><img src="assets/poop-gifs/type-4.gif" alt=""></div>
+        <div class="poop-img-container"><img src="assets/poop-gifs/type-5.gif" alt=""></div>
+        <div class="poop-img-container"><img src="assets/poop-gifs/type-6.gif" alt=""></div>
+        <div class="poop-img-container"><img src="assets/poop-gifs/type-7.gif" alt=""></div>
       </div>
     </div>
-    <div class="normal-brown-cards"><h4>FIRM & FLACCID<h4></h4></div>
-    <div class="normal-brown-cards"><h4>THREE TIMES, THREE TIMES!<h4></h4></div> 
+    <p class="p1">allow us to take you through each of them</p>
+  </section>
+
+
+  <!-- ============ THE SEVEN TYPES ============ -->
+  <section class="bristol" aria-label="The seven types of poop">
+
+    <article class="type type--pebbles">
+      <h5 class="type__label">TYPE 1</h5>
+      <h1 class="h1__accent type__title">PEBBLES</h1>
+      <img class="type__gif" src="assets/poop-gifs/type-1.gif" alt="">
+      <div class="p1 type__note type__note--left">Little hard nuggets, like nuts. Difficult to pass and commonly associated with constipation.</div>
+      <div class="p1 type__note type__note--right">Fighting for your life just for this to come out</div>
+    </article>
+
+    <article class="type type--lumpy">
+      <h5 class="type__label">TYPE 2</h5>
+      <h1 class="h1__accent type__title">LUMPY</h1>
+      <img class="type__gif" src="assets/poop-gifs/type-2.gif" alt="">
+      <div class="p1 type__note type__note--left">A sausage shape, but with lumps. Also commonly associated with constipation.</div>
+      <div class="p1 type__note type__note--right">usually experienced among procrapstinators - putting it off until things get hard.</div>
+    </article>
+
+    <article class="type type--cracks">
+      <h5 class="type__label">TYPE 3</h5>
+      <h1 class="h1__accent type__title">CRACKS</h1>
+      <img class="type__gif" src="assets/poop-gifs/type-3.gif" alt="">
+      <div class="p1 type__note type__note--left">A formed sausage with cracks along the surface. Generally within the healthy range.</div>
+    </article>
+
+    <article class="type type--snake">
+      <h5 class="type__label">TYPE 4</h5>
+      <h1 class="h1__accent type__title">SNAKE</h1>
+      <img class="type__gif" src="assets/poop-gifs/type-4.gif" alt="">
+      <div class="p1 type__note type__note--left">Smooth, soft, and sausage- or snake-shaped.</div>
+      <div class="p1 type__note type__note--right">This is generally considered an ideal stool type</div>
+    </article>
+
+    <article class="type type--blobs">
+      <h5 class="type__label">TYPE 5</h5>
+      <h1 class="h1__accent type__title">BLOBS</h1>
+      <img class="type__gif" src="assets/poop-gifs/type-5.gif" alt="">
+      <div class="p1 type__note type__note--left">Soft blobs with clear-cut edges. These can pass easily, but may indicate a change in bowel transit</div>
+      <div class="p1 type__note type__note--right">placeholder text blablabla</div>
+    </article>
+
+    <article class="type type--mush">
+      <h5 class="type__label">TYPE 6</h5>
+      <h1 class="h1__accent type__title">MUSH</h1>
+      <img class="type__gif" src="assets/poop-gifs/type-6.gif" alt="">
+      <div class="p1 type__note type__note--left">Fluffy pieces with ragged edges and a mushy consistency. Often associated with diarrhoea.</div>
+      <div class="p1 type__note type__note--right">mushmushmush</div>
+    </article>
+
+    <article class="type type--liquid">
+      <h5 class="type__label">TYPE 7</h5>
+      <h1 class="h1__accent type__title">LIQUID</h1>
+      <img class="type__gif" src="assets/poop-gifs/type-7.gif" alt="">
+      <div class="p1 type__note type__note--left">No solid pieces, just liquid. This is diarrhoea.</div>
+      <div class="p1 type__note type__note--right">
+        <div>soupy poopy</div>
+        <div>can be mistaken for a fart</div>
+      </div>
+    </article>
+
+    <article class="type type-close">
+      <h5>wasn’t that delicious?</h5>
+    </article>
+
+  </section>
+
+
+  <!-- ============ IS MY SHIT NORMAL? ============ -->
+ <section class="normal-shit">
+  <blockquote class="quote-clash">so it’s normal to shit,<br>but is my shit normal?</blockquote>
+
+  <div>
+    <p class="p1">Normal isn’t one thing. It’s a range, and everyone’s sits somewhere different. Here’s what the usual range looks like.</p>
+
+    <div class="normal-cards">
+
+      <div class="normal-brown-cards" tabindex="0">
+        <h4 class="brown-cards-front">FIRM & FLACCID</h4>
+        <div class="brown-cards-back">
+          <h5>CONSISTENCY</h5>
+          <p class="p2"><span>Types 3 and 4 are usually ideal:</span> formed, soft, and easy to pass. But all seven can be experienced at some point.</p>
+        </div>
+      </div> 
+
+      <div class="normal-brown-cards" tabindex="0">
+        <h4 class="brown-cards-front">FIFTY SHADES OF BROWN</h4>
+        <div class="brown-cards-back">
+          <h5>COLOUR</h5>
+          <p class="p2">(Not literally 50 lol) <span>From tan to espresso, brown is the usual. </span>Other colours? Often food-related, but some are worth keeping an eye on.</p>
+        </div>
+      </div>
+
+      <div class="normal-brown-cards" tabindex="0">
+        <h4 class="brown-cards-front">THREE TIMES, THREE TIMES!</h4>
+        <div class="brown-cards-back">
+          <h5>FREQUENCY</h5>
+          <p class="p2">What stamina! But you do you. Anywhere from <span>3 times a day to 3 times a week</span> can be normal. What matters is what's usual for you.</p>
+        </div>
+      </div>
+
+    </div>
   </div>
-</div>
 
-<div class="shart-chart">
-  <p class="p2 desc-1">Your usual is your usual. 
-What counts is noticing when it changes.</p>
-  <p class="p2 desc-2">But remember: one poop doesn't tell the whole story.
-Your usual pattern, symptoms, and changes over time matter too.</p>
-<p class="advercase desc-3">The shart chart is a guide</p>
-<p class="advercase desc-4">not a diagnosis</p>
-
-
-</div>
-
+  <div class="shart-chart">
+    <p class="p2 desc-1">Your usual is your usual. What counts is noticing when it changes.</p>
+    <p class="p2 desc-2">But remember: one poop doesn't tell the whole story. Your usual pattern, symptoms, and changes over time matter too.</p>
+    <p class="advercase desc-3">The shart chart is a guide</p>
+    <p class="advercase desc-4">not a diagnosis</p>
+  </div>
 </section>
 
+<section class="filler">
+  <h1 class="h1_accent">Sooooo</h1>
+</section>
 
- <footer class="site-footer">
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
   <div class="footer-inner">
 
-    <!-- Logo -->
     <div class="footer-logo">
-      <img
-        src="/assets/logo-animation-gif.gif"
-        alt="Website logo"
-      />
+      <img src="assets/logo-animation-gif.gif" alt="HWYPT">
     </div>
 
-    <!-- Share CTA -->
     <div class="footer-cta">
-      <button class="share-button" id="shareButton">
-        <h4>ASK A FRIEND!</h4>
-
-        <span class="share-icon">
+      <button class="share-button" id="shareButton" type="button">
+        <span>ASK A FRIEND!</span>
+        <span class="share-icon" aria-hidden="true">
           <img src="assets/arrow-white.svg" alt="">
         </span>
       </button>
@@ -221,7 +243,7 @@ Your usual pattern, symptoms, and changes over time matter too.</p>
         <h5>QUICK LINKS</h5>
         <ul>
           <li><a href="#bristol-stool-chart">BRISTOL STOOL CHART</a></li>
-          <li><a href="bowel-health-matters">BOWEL HEALTH MATTERS</a></li>
+          <li><a href="bowel-health-matters.html">BOWEL HEALTH MATTERS</a></li>
           <li><a href="#">OTHER SOURCES</a></li>
         </ul>
       </nav>
@@ -230,6 +252,5 @@ Your usual pattern, symptoms, and changes over time matter too.</p>
   </div>
 </footer>
 
-<script src="hscroll.js" defer></script>
 </body>
 </html>
